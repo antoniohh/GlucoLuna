@@ -1,0 +1,328 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { ArrowRight, CalendarDays, Syringe, Type, FileText, ShieldCheck, ShieldAlert, Check } from "@lucide/astro";
+import { withBase, absoluteUrl } from "../lib/site";
+import "../styles/landing.css";
+
+const homeUrl = absoluteUrl("");
+const appId = `${homeUrl}#app`;
+const faqId = `${homeUrl}#faq`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${homeUrl}#website`,
+      url: homeUrl,
+      name: "GlucoLuna",
+      description: "Calendario nocturno de glucosa y guía visual de pinchazo con pluma.",
+      inLanguage: "es",
+    },
+    {
+      "@type": "WebApplication",
+      "@id": appId,
+      name: "GlucoLuna",
+      url: homeUrl,
+      description:
+        "Calendario mensual imprimible para anotar glucosa y dosis, y guía visual para ponerse la insulina con pluma.",
+      author: {
+        "@type": "Person",
+        name: "Antonio Horrillo",
+        url: "https://github.com/antoniohh",
+      },
+      applicationCategory: "HealthApplication",
+      operatingSystem: "Any",
+      browserRequirements: "Requires JavaScript",
+      isAccessibleForFree: true,
+      inLanguage: "es",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "EUR",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": faqId,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "¿Necesito registrarme para usar GlucoLuna?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No. GlucoLuna funciona en el navegador y no pide cuenta ni datos personales. Puedes imprimir el calendario y la guía directamente.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "¿Puedo imprimir solo un mes?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sí. El calendario muestra un mes por hoja. Elige el mes, pulsa Imprimir mes y saldrá una sola página A4.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "¿La guía sirve para cualquier pluma de insulina?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "La guía explica el proceso general con pluma y aguja desechable. La dosis, el tipo de aguja y la técnica deben ser siempre los que indique su médico o enfermera.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "¿Tengo que activar los gráficos de fondo al imprimir?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sí, en el calendario. Sin esa opción los bloques azules del mes, la leyenda y los números de los días no se imprimen. En la guía también conviene activarla.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "¿Se puede usar en el móvil?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sí. La web se adapta al móvil y la tableta. La guía se puede leer como secciones y el calendario se puede ampliar. Para escribir a mano, lo más cómodo es imprimir la hoja en A4.",
+          },
+        },
+      ],
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="GlucoLuna · Calendario de glucosa y guía de pinchazo"
+  description="Calendario mensual imprimible para anotar la glucosa y la dosis, y guía visual para ponerse la insulina con pluma. Letra grande, A4 y sin registro."
+  canonicalPath=""
+  active="inicio"
+  jsonLd={jsonLd}
+>
+
+
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <p class="eyebrow"><span class="eyebrow__dot"></span> Control nocturno de glucosa</p>
+          <h1>Tu glucosa de noche, <span class="hero__highlight">clara y sin líos.</span></h1>
+          <p class="hero__lead">Un calendario mensual para apuntar la medición y la dosis, y una guía visual para ponerse la insulina con pluma. Letra grande, en papel y sin registro.</p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary btn--large" href={withBase("calendario/")}>
+              Ver calendario
+              <ArrowRight size={19} aria-hidden="true" />
+            </a>
+            <a class="btn btn--secondary btn--large" href={withBase("guia-pinchazo/")}>Guía de pinchazo</a>
+          </div>
+
+          <ul class="hero__checks" aria-label="Ventajas">
+            <li><span aria-hidden="true"><Check size={11} /></span> Listo para A4</li>
+            <li><span aria-hidden="true"><Check size={11} /></span> Letra grande</li>
+            <li><span aria-hidden="true"><Check size={11} /></span> Sin conexión</li>
+          </ul>
+        </div>
+
+        <div class="hero__visual" aria-hidden="true">
+          <div class="mock-calendar">
+            <div class="mock-calendar__head">
+              <div>
+                <strong>CONTROL NOCTURNO</strong>
+                <span>Azúcar y dosis</span>
+              </div>
+              <span class="mock-calendar__badge">OCTUBRE</span>
+            </div>
+            <div class="mock-week">
+              <span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span>
+            </div>
+            <div class="mock-grid">
+              <div class="mock-day mock-day--note"><span>RECUERDE<br>CADA NOCHE</span></div>
+              <div class="mock-day"><b>1</b><i></i><i></i><em>PINCHADA</em></div>
+              <div class="mock-day"><b>2</b><i></i><i></i><em>PINCHADA</em></div>
+              <div class="mock-day"><b>3</b><i></i><i></i><em>PINCHADA</em></div>
+              <div class="mock-day"><b>4</b><i></i><i></i><em>PINCHADA</em></div>
+              <div class="mock-day"><b>5</b><i></i><i></i><em>PINCHADA</em></div>
+              <div class="mock-day"><b>6</b><i></i><i></i><em>PINCHADA</em></div>
+              <div class="mock-day"><b>7</b><i></i><i></i><em>PINCHADA</em></div>
+              <div class="mock-day"><b>8</b><i></i><i></i><em>PINCHADA</em></div>
+              <div class="mock-day"><b>9</b><i></i><i></i><em>PINCHADA</em></div>
+              <div class="mock-day"><b>10</b><i></i><i></i><em>PINCHADA</em></div>
+              <div class="mock-day"><b>11</b><i></i><i></i><em>PINCHADA</em></div>
+            </div>
+          </div>
+
+          <div class="mock-guide">
+            <span class="mock-guide__icon">
+              <Syringe size={22} aria-hidden="true" />
+            </span>
+            <span>
+              <strong>Guía visual</strong>
+              <span>10 pasos con dibujos</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="herramientas" aria-labelledby="herramientas-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Todo en uno</p>
+          <h2 id="herramientas-title">Dos herramientas, una rutina más tranquila</h2>
+          <p>Lo que se apunta cada noche y lo que hay que recordar al pincharse, separado y siempre a mano.</p>
+        </div>
+
+        <div class="tool-grid">
+          <article class="tool-card">
+            <div class="tool-card__icon tool-card__icon--blue" aria-hidden="true">
+              <CalendarDays size={29} aria-hidden="true" />
+            </div>
+            <h3>Calendario mensual</h3>
+            <p>Una hoja por mes para escribir la glucosa, las unidades y marcar la casilla de pinchada.</p>
+            <ul class="tool-list">
+              <li>Línea para mg/dL y para unidades</li>
+              <li>Casilla PINCHADA en cada día</li>
+              <li>Recordatorio y zona de notas</li>
+            </ul>
+            <a class="text-link" href={withBase("calendario/")}>Abrir calendario <ArrowRight size={17} aria-hidden="true" /></a>
+          </article>
+
+          <article class="tool-card">
+            <div class="tool-card__icon tool-card__icon--amber" aria-hidden="true">
+              <Syringe size={29} aria-hidden="true" />
+            </div>
+            <h3>Guía de pinchazo</h3>
+            <p>Pasos con dibujos grandes para preparar la pluma, ajustar la dosis, pinchar y retirar la aguja.</p>
+            <ul class="tool-list">
+              <li>10 pasos visuales, uno por uno</li>
+              <li>Zonas, rotación y higiene</li>
+              <li>Qué hacer si baja el azúcar</li>
+            </ul>
+            <a class="text-link" href={withBase("guia-pinchazo/")}>Ver la guía <ArrowRight size={17} aria-hidden="true" /></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="como-funciona" aria-labelledby="como-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="section-kicker">En tres pasos</p>
+          <h2 id="como-title">De la pantalla al papel, sin complicaciones</h2>
+          <p>No hay que crear una cuenta ni instalar nada. Todo se hace desde el navegador.</p>
+        </div>
+
+        <ol class="how-steps">
+          <li class="how-step">
+            <span class="how-step__num">1</span>
+            <h3>Elige el mes</h3>
+            <p>Abre el calendario y mueve el mes con las flechas hasta la fecha que necesites.</p>
+          </li>
+          <li class="how-step">
+            <span class="how-step__num">2</span>
+            <h3>Imprime en A4</h3>
+            <p>Pulsa «Imprimir mes». Una hoja por mes, con letra grande y espacio para escribir.</p>
+          </li>
+          <li class="how-step">
+            <span class="how-step__num">3</span>
+            <h3>Apúntalo cada noche</h3>
+            <p>Glucosa arriba, unidades abajo y una X al pincharte. La guía queda para consultar dudas.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="casa-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Pensado para casa</p>
+          <h2 id="casa-title">Claro en pantalla. Claro en papel.</h2>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature">
+            <span class="feature__icon" aria-hidden="true">
+              <Type size={24} aria-hidden="true" />
+            </span>
+            <h3>Letra grande</h3>
+            <p>Textos altos y contrastados, pensados para leer sin esfuerzo y para imprimir con claridad.</p>
+          </article>
+
+          <article class="feature">
+            <span class="feature__icon" aria-hidden="true">
+              <FileText size={24} aria-hidden="true" />
+            </span>
+            <h3>Una hoja, un mes</h3>
+            <p>Sin páginas de más. Elige el mes y obtén exactamente la hoja que vas a usar.</p>
+          </article>
+
+          <article class="feature">
+            <span class="feature__icon" aria-hidden="true">
+              <ShieldCheck size={24} aria-hidden="true" />
+            </span>
+            <h3>Sin registro</h3>
+            <p>No se guardan datos personales. Lo que escribes se queda en el papel.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="preguntas" aria-labelledby="faq-title">
+      <div class="container faq-wrap">
+        <div class="section-head">
+          <p class="section-kicker">Preguntas frecuentes</p>
+          <h2 id="faq-title">Dudas antes de empezar</h2>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>¿Necesito registrarme o dar mis datos?</summary>
+            <p>No. GlucoLuna funciona en el navegador y no pide cuenta, correo ni datos personales. Puedes imprimir el calendario y la guía directamente.</p>
+          </details>
+          <details>
+            <summary>¿Puedo imprimir solo un mes?</summary>
+            <p>Sí. El calendario muestra un mes por hoja. Elige el mes, pulsa «Imprimir mes» y saldrá una sola página A4.</p>
+          </details>
+          <details>
+            <summary>¿La guía sirve para cualquier pluma de insulina?</summary>
+            <p>La guía explica el proceso general con pluma y aguja desechable. La dosis, el tipo de aguja y la técnica deben ser siempre los que indique su médico o enfermera.</p>
+          </details>
+          <details>
+            <summary>¿Tengo que activar los gráficos de fondo al imprimir?</summary>
+            <p>Sí, en el calendario. Sin esa opción los bloques azules del mes, la leyenda y los números de los días no se imprimen. En la guía también conviene activarla.</p>
+          </details>
+          <details>
+            <summary>¿Se puede usar en el móvil?</summary>
+            <p>Sí. La web se adapta al móvil y la tableta. Para escribir a mano, lo más cómodo sigue siendo imprimir la hoja en A4.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="medical-note" id="aviso-medico" aria-labelledby="aviso-title">
+      <div class="container medical-note__inner">
+        <span class="medical-note__icon" aria-hidden="true">
+          <ShieldAlert size={23} aria-hidden="true" />
+        </span>
+        <div>
+          <h2 id="aviso-title">Una herramienta de apoyo, no un tratamiento</h2>
+          <p>GlucoLuna ayuda a organizar el registro y a repasar los pasos del pinchazo. No sustituye las instrucciones de tu médico, enfermera o farmacéutico. La dosis, la pauta y el tipo de aguja deben ser siempre los que te hayan indicado.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container cta-band__inner">
+        <div>
+          <p class="cta-band__kicker">Empieza esta noche</p>
+          <h2>Ten la hoja preparada antes de la hora del pinchazo.</h2>
+        </div>
+        <div class="cta-band__actions">
+          <a class="btn btn--primary btn--large" href={withBase("calendario/")}>Abrir calendario</a>
+          <a class="btn btn--ghost btn--large" href={withBase("guia-pinchazo/")}>Ver la guía</a>
+        </div>
+      </div>
+    </section>
+
+  
+</BaseLayout>

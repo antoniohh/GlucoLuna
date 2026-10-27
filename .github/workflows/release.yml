@@ -1,0 +1,41 @@
+name: Release GlucoLuna
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Astro site
+        run: npm run build
+
+      - name: Create production ZIP
+        run: |
+          cd dist
+          zip -r "../glucoluna-${GITHUB_REF_NAME}.zip" .
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: GlucoLuna ${{ github.ref_name }}
+          files: glucoluna-${{ github.ref_name }}.zip
+          generate_release_notes: true
+          make_latest: true

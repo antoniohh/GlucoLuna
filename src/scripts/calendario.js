@@ -31,7 +31,7 @@ const state = {
   month: 9, // 0 = enero
 };
 
-// Enlaces directos: calendario.html?m=11&y=2026
+// Enlaces directos: /calendario/?m=11&y=2026
 const params = new URLSearchParams(window.location.search);
 const queryMonth = Number(params.get("m"));
 const queryYear = Number(params.get("y"));

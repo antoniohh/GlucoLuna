@@ -1,5 +1,13 @@
 # GlucoLuna
 
+[![Versión](https://img.shields.io/badge/versi%C3%B3n-2.0.0-1e3a8a?style=flat-square)](CHANGELOG.md)
+[![Astro](https://img.shields.io/badge/Astro-7.4.2-BC52EE?style=flat-square&logo=astro&logoColor=white)](https://astro.build)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.3.3-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![Lucide](https://img.shields.io/badge/Lucide-1.62.0-F56565?style=flat-square&logo=lucide&logoColor=white)](https://lucide.dev)
+[![Node](https://img.shields.io/badge/Node-22-339933?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org)
+[![Licencia](https://img.shields.io/badge/licencia-MIT-yellow?style=flat-square)](LICENSE)
+[![Deploy](https://img.shields.io/badge/deploy-GitHub%20Pages-1e3a8a?style=flat-square&logo=github&logoColor=white)](https://antoniohh.github.io/GlucoLuna/)
+
 **Calendario nocturno de glucosa y guía visual de pinchazo con pluma.**
 
 GlucoLuna reúne dos herramientas pensadas para usar en casa:
@@ -7,67 +15,84 @@ GlucoLuna reúne dos herramientas pensadas para usar en casa:
 - Un **calendario mensual imprimible** para apuntar la glucosa (`mg/dL`), la dosis (`Unid.`) y marcar la casilla de pinchada.
 - Una **guía visual de pinchazo** con letra grande, dibujos y explicaciones paso a paso para preparar la pluma, ajustar la dosis, poner y quitar la aguja y actuar si baja el azúcar.
 
-No necesita registro, instalación ni conexión a internet. Funciona abriendo los archivos HTML en el navegador y está preparada para publicarse en GitHub Pages.
+No necesita registro ni base de datos. Es una web estática, sin React ni islas de cliente: **Astro genera HTML estático**, y el JavaScript solo se usa para el menú móvil, la navegación del calendario y el ajuste de las hojas A4.
 
-## Estructura del proyecto
+## Stack
 
-```
-glucoluna/
-├── index.html                    Portada / landing
-├── calendario.html               Calendario mensual A4
-├── guia-pinchazo.html            Guía visual de pinchazo
-├── 404.html                      Página de error para GitHub Pages
-├── css/
-│   ├── base.css                  Cabecera, menú, botones, pie y estilos comunes
-│   ├── landing.css               Portada
-│   ├── calendario.css            Hoja A4 y controles del calendario
-│   └── guia.css                  Guía visual, hojas A4 y modo lectura móvil
-├── js/
-│   ├── ui.js                     Menú móvil de altura fija
-│   ├── calendario.js             Generación del mes y ajuste A4 en pantalla
-│   └── guia.js                   Ajuste de la guía e impresión
-├── assets/
-│   ├── favicon.svg
-│   ├── apple-touch-icon.png
-│   ├── icon-192.png
-│   ├── icon-512.png
-│   ├── og-image.png              Imagen para redes sociales
-│   └── og-image.svg              Fuente de la imagen social
-├── robots.txt
-├── sitemap.xml
-├── site.webmanifest
-├── .nojekyll
+- **Astro 7** — páginas y componentes estáticos.
+- **Tailwind CSS 4** — utilidades de layout y componentes nuevos.
+- **Lucide (`@lucide/astro`)** — iconos de interfaz.
+- **CSS propio** — hojas A4, impresión y las ilustraciones médicas paso a paso.
+- **GitHub Actions** — despliegue automático en GitHub Pages.
+
+No se añade React: no hay estado compartido ni interactividad compleja que lo justifique. Astro + JavaScript puntual es más ligero y mantiene la web rápida.
+
+## Estructura
+
+```text
+GlucoLuna/
+├── src/
+│   ├── components/
+│   │   ├── Header.astro
+│   │   ├── Footer.astro
+│   │   └── PageHeader.astro
+│   ├── layouts/
+│   │   └── BaseLayout.astro
+│   ├── lib/
+│   │   └── site.ts
+│   ├── pages/
+│   │   ├── index.astro
+│   │   ├── calendario.astro
+│   │   ├── guia-pinchazo.astro
+│   │   └── 404.astro
+│   ├── scripts/
+│   │   ├── ui.js
+│   │   ├── calendario.js
+│   │   └── guia.js
+│   └── styles/
+│       ├── global.css
+│       ├── base.css
+│       ├── landing.css
+│       ├── calendario.css
+│       └── guia.css
+├── public/
+│   ├── assets/
+│   ├── robots.txt
+│   ├── site.webmanifest
+│   └── .nojekyll
+├── .github/workflows/
+│   ├── deploy.yml
+│   └── release.yml
+├── astro.config.mjs
+├── package.json
+├── LICENSE
+├── CHANGELOG.md
 └── README.md
 ```
 
-## Cómo ejecutarlo
-
-### Opción 1 — Abrir directamente
-
-Haz doble clic en `index.html` o ejecuta:
+## Desarrollo
 
 ```bash
-xdg-open index.html
+npm install
+npm run dev
 ```
 
-No hay dependencias ni compilación.
+Abre la URL que indique Astro. La web se sirve con la base `/GlucoLuna/`, igual que en GitHub Pages.
 
-### Opción 2 — Servidor local
+### Otros comandos
 
 ```bash
-cd /home/antoniohh/Proyectos/glucoluna
-python3 -m http.server 8000
+npm run build      # genera dist/
+npm run preview    # sirve dist/ localmente
+npm run check      # comprobación de Astro
 ```
-
-Abre <http://localhost:8000>.
 
 ## Cómo usarlo
 
-- **Portada:** explica la app y enlaza al calendario y a la guía.
-- **Menú:** `Inicio`, `Calendario` y `Guía de pinchazo`. Mantiene siempre la misma altura, también en móvil.
-- **Calendario:** elige mes y año con las flechas o los selectores. Pulsa **«Imprimir mes»** para sacar una sola hoja A4.
-- **Guía:** muestra 4 hojas A4 con 10 pasos visuales, zonas, cuidados y seguridad. Puedes imprimirla directamente desde el navegador.
-- **Enlaces directos:** `calendario.html?m=11&y=2026` abre noviembre de 2026.
+- **Inicio:** portada con acceso al calendario y a la guía.
+- **Calendario:** elige mes y año. Pulsa **«Imprimir mes»** para sacar una hoja A4.
+- **Guía:** 4 hojas A4 con 10 pasos visuales, zonas, cuidados y seguridad.
+- **Enlaces directos:** `/calendario/?m=11&y=2026` abre noviembre de 2026.
 
 ## Impresión
 
@@ -83,64 +108,66 @@ En el diálogo del navegador:
 | **Gráficos de fondo** | **Activado** |
 | Encabezados y pies de página | Desactivados |
 
-«Gráficos de fondo» es importante para que se impriman los bloques azules del calendario y de la guía.
+«Gráficos de fondo» es necesario para que se impriman los bloques azules del calendario y de la guía.
 
 ## Móvil y accesibilidad
 
-- Cabecera fija de **64 px** en móvil y **76 px** en escritorio. El menú móvil se abre como panel superpuesto y **no cambia la altura** ni empuja el contenido.
-- La guía cambia a un **modo lectura** en pantallas pequeñas: los pasos se apilan, el texto crece y los dibujos pasan debajo. La impresión sigue saliendo en A4.
-- El calendario se escala para caber en el ancho del móvil; se puede ampliar con los dedos.
+- Cabecera fija de **64 px** en móvil y **76 px** en escritorio. El menú móvil es un panel superpuesto y no cambia la altura.
+- La guía pasa a **modo lectura** en pantallas pequeñas: pasos apilados, texto más grande y dibujos debajo.
+- El calendario se escala al ancho disponible y se puede ampliar con los dedos.
 - Se respetan `prefers-reduced-motion`, el foco visible y los enlaces de salto de contenido.
-- Todos los textos e imágenes tienen alternativa o descripción accesible.
 
-## Publicar en GitHub Pages
+## Despliegue en GitHub Pages
 
-La web es completamente estática y usa rutas relativas, así que funciona en un repositorio de proyecto.
+El repositorio ya está configurado para `https://antoniohh.github.io/GlucoLuna/`.
 
-1. **Sustituye los placeholders de URL.** Busca `TUUSUARIO` en los HTML, `sitemap.xml` y `robots.txt`:
+1. Sube los cambios a `main`.
+2. En GitHub entra en **Settings → Pages**.
+3. En **Build and deployment**, elige **GitHub Actions**.
+4. El workflow `.github/workflows/deploy.yml` hará el build y publicará `dist/` automáticamente.
 
-   ```bash
-   grep -rl "TUUSUARIO" index.html calendario.html guia-pinchazo.html sitemap.xml robots.txt
-   sed -i 's/TUUSUARIO/tu-usuario-de-github/g' index.html calendario.html guia-pinchazo.html sitemap.xml robots.txt
-   ```
+La configuración de Astro ya incluye:
 
-   Si el repositorio no se llama `glucoluna`, cambia también `glucoluna` por el nombre real en las mismas URLs.
+- `site: "https://antoniohh.github.io"`
+- `base: "/GlucoLuna"`
+- `build.format: "directory"`
+- Sitemap automático con `@astrojs/sitemap`
 
-2. **Crea el repositorio** en GitHub con el nombre `glucoluna` (o el que hayas elegido).
+Si cambias el nombre del repositorio o el usuario, actualiza `src/lib/site.ts` y `astro.config.mjs`.
 
-3. **Sube el proyecto:**
-
-   ```bash
-   git init
-   git add .
-   git commit -m "GlucoLuna: calendario y guía de pinchazo"
-   git branch -M main
-   git remote add origin https://github.com/tu-usuario-de-github/glucoluna.git
-   git push -u origin main
-   ```
-
-4. En GitHub entra en **Settings → Pages**.
-5. En **Build and deployment**, elige **Deploy from a branch**.
-6. Selecciona la rama **main** y la carpeta **/(root)**. Guarda.
-7. La web quedará en:
-
-   ```
-   https://tu-usuario-de-github.github.io/glucoluna/
-   ```
-
-El archivo `.nojekyll` ya está incluido para que GitHub Pages no procese el sitio con Jekyll.
-
-## SEO incluido
+## SEO
 
 - Títulos y descripciones únicos por página.
-- `lang="es"`, `viewport`, `theme-color` y `robots`.
-- URLs canónicas y Open Graph/Twitter Cards.
-- Imagen social `assets/og-image.png` (1200 × 630).
-- Datos estructurados JSON-LD: `WebSite`, `WebApplication`, `FAQPage`, `MedicalWebPage` y migas de pan.
-- `sitemap.xml`, `robots.txt` y `site.webmanifest`.
-- Página `404.html` y `.nojekyll` para GitHub Pages.
+- Canónicas, Open Graph y Twitter Cards.
+- Datos estructurados JSON-LD (`WebSite`, `WebApplication`, `FAQPage`, `MedicalWebPage`).
+- Sitemap generado en el build y `robots.txt`.
+- Imagen social `public/assets/og-image.png`.
+- Página 404 y manifiesto PWA.
 
-Antes de publicar, revisa que las URLs canónicas, `og:url`, `og:image`, `sitemap.xml` y `robots.txt` apunten a tu usuario y repositorio reales.
+## Control de versiones
+
+Versión actual: **2.0.0** · [Historial completo](CHANGELOG.md)
+
+| Versión | Fecha | Cambios principales |
+|---|---|---|
+| **2.0.0** | 2026-10-28 | Astro 7, Tailwind 4, Lucide, GitHub Pages y licencia MIT |
+| 1.1.0 | 2026-10-28 | Landing, menú fijo, guía visual y responsive |
+| 1.0.0 | 2026-10-27 | Calendario A4 y guía inicial |
+
+Para publicar una release:
+
+```bash
+git tag -a v2.0.0 -m "GlucoLuna 2.0.0"
+git push origin v2.0.0
+```
+
+El workflow `release.yml` crea la release en GitHub y adjunta un ZIP del sitio compilado.
+
+## Autoría y licencia
+
+Creado por [Antonio Horrillo](https://github.com/antoniohh).
+
+Código y contenido bajo licencia [MIT](LICENSE). El contenido sanitario es orientativo y no sustituye la atención profesional.
 
 ## Aviso médico
 

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://antoniohh.github.io/GlucoLuna/sitemap-index.xml

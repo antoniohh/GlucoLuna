@@ -35,12 +35,12 @@
     {
       "name": "Calendario mensual",
       "short_name": "Calendario",
-      "url": "./calendario.html"
+      "url": "./calendario/"
     },
     {
       "name": "Guía de pinchazo",
       "short_name": "Guía",
-      "url": "./guia-pinchazo.html"
+      "url": "./guia-pinchazo/"
     }
   ]
 }
