@@ -1,0 +1,578 @@
+/* ============================================================
+   GlucoLuna · calendario mensual
+   Hoja A4 + controles de mes
+   ============================================================ */
+
+.calendar-page {
+  padding: 34px 0 66px;
+}
+
+/* ---------- Controles ---------- */
+
+.calendar-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.calendar-controls__nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.control-btn {
+  display: inline-grid;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  place-items: center;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.control-btn:hover {
+  background: #f1f5f9;
+}
+
+.control-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.control-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.control-field select,
+.control-field input {
+  height: 46px;
+  padding: 0 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  text-transform: none;
+  letter-spacing: 0;
+  background: #fff;
+  border: 1px solid var(--line-strong);
+  border-radius: 9px;
+}
+
+.control-field select {
+  min-width: 150px;
+}
+
+.control-field input {
+  width: 96px;
+}
+
+.print-hint {
+  margin: 10px 0 0;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.mobile-hint {
+  display: none;
+  margin: 14px auto 0;
+  max-width: 520px;
+  font-size: 12.5px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ---------- Marco de la hoja ---------- */
+
+.sheet-frame {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 26px;
+  padding-inline: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* ---------- Hoja A4 ---------- */
+
+.sheet {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: none;
+  width: 210mm;
+  height: 297mm;
+  padding: 10mm;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.18);
+  transform-origin: top center;
+}
+
+.sheet-header {
+  flex: none;
+  padding: 4.4mm 5mm 5mm;
+  border: 1.4px solid var(--ink);
+  border-radius: 2.4mm;
+}
+
+.title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 6mm;
+}
+
+.sheet h1 {
+  margin: 0;
+  font-size: 15.5pt;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: 0.2px;
+}
+
+.sheet .subtitle {
+  max-width: 128mm;
+  margin: 1.8mm 0 0;
+  font-size: 7.4pt;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.month-badge {
+  flex: none;
+  margin-top: 0.6mm;
+  padding: 1.2mm 4.2mm 1.4mm;
+  font-size: 15pt;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.2px;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  background: var(--navy);
+  border-radius: 1.2mm;
+}
+
+.identity {
+  display: flex;
+  gap: 8mm;
+  margin-top: 5.2mm;
+}
+
+.identity__row {
+  display: flex;
+  flex: 1;
+  align-items: flex-end;
+  gap: 2mm;
+  min-width: 0;
+}
+
+.identity__row:first-child {
+  flex: 1.08;
+}
+
+.identity__row span {
+  flex: none;
+  padding-bottom: 0.5mm;
+  font-size: 8.2pt;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.identity__line {
+  flex: 1;
+  height: 3.4mm;
+  border-bottom: 1px solid var(--ink);
+}
+
+/* ---------- Leyenda ---------- */
+
+.legend {
+  display: grid;
+  flex: none;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 4mm;
+  overflow: hidden;
+  background: #eff6ff;
+  border: 1px solid #93c5fd;
+  border-radius: 0.9mm;
+}
+
+.legend__item {
+  display: flex;
+  align-items: center;
+  gap: 2mm;
+  min-width: 0;
+  padding: 2.6mm 2.2mm;
+  border-right: 1px solid #bfdbfe;
+}
+
+.legend__item:last-child {
+  border-right: 0;
+}
+
+.legend__key {
+  flex: none;
+  min-width: 20mm;
+  padding: 1.3mm 1.4mm;
+  font-size: 6.5pt;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #fff;
+  text-align: center;
+  background: var(--navy);
+  border-radius: 0.4mm;
+}
+
+.legend__desc {
+  font-size: 7.1pt;
+  font-weight: 600;
+  line-height: 1.28;
+}
+
+/* ---------- Rejilla ---------- */
+
+.calendar {
+  display: grid;
+  flex: 1;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 8.5mm repeat(var(--rows, 5), minmax(0, 1fr));
+  gap: 1px;
+  min-height: 0;
+  margin-top: 2.6mm;
+  background: var(--ink);
+  border: 1.4px solid var(--ink);
+}
+
+.weekday {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 7.6pt;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #fff;
+  background: var(--ink);
+}
+
+.cell {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+.calendar > div > .cell {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 1.7mm 1.7mm;
+}
+
+.day__num {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  width: 7mm;
+  height: 7mm;
+  place-items: center;
+  font-size: 9pt;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  background: var(--ink);
+}
+
+.day__fields {
+  position: absolute;
+  inset: 0;
+}
+
+.field {
+  position: absolute;
+  right: 1.7mm;
+  left: 1.7mm;
+  display: flex;
+  align-items: flex-end;
+  gap: 1mm;
+  min-width: 0;
+}
+
+.field--glucose {
+  top: 33%;
+}
+
+.field--dose {
+  top: 55%;
+}
+
+.field__line {
+  flex: 1;
+  height: 3.1mm;
+  border-bottom: 1px solid var(--ink);
+}
+
+.field__unit {
+  flex: none;
+  font-size: 6.2pt;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.pinch {
+  position: absolute;
+  top: 80%;
+  right: 1.7mm;
+  left: 1.7mm;
+  display: flex;
+  align-items: center;
+  gap: 1mm;
+  font-size: 6.2pt;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.pinch__box {
+  flex: none;
+  width: 3mm;
+  height: 3mm;
+  background: #fff;
+  border: 1px solid var(--ink);
+}
+
+/* ---------- Notas de huecos ---------- */
+
+.note {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 3mm 2.6mm;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+.note__title {
+  margin: 0 0 1.8mm;
+  font-size: 7.3pt;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.2px;
+}
+
+.note__list {
+  margin: 0;
+  padding-left: 3.6mm;
+  font-size: 6.6pt;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.note__list li + li {
+  margin-top: 0.4mm;
+}
+
+.note--narrow {
+  padding: 2.4mm 2.2mm;
+}
+
+.note--narrow .note__title {
+  margin-bottom: 1.2mm;
+  font-size: 6.6pt;
+}
+
+.note--narrow .note__list {
+  padding-left: 3.2mm;
+  font-size: 6.1pt;
+  line-height: 1.35;
+}
+
+.note-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6mm;
+  padding: 2.4mm 2.2mm;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+.note-compact__month {
+  font-size: 6.4pt;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+}
+
+.note-compact__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1mm;
+  margin: 0;
+  padding: 0;
+  font-size: 6.1pt;
+  font-weight: 600;
+  line-height: 1.2;
+  list-style: none;
+}
+
+/* ---------- Pie de la hoja ---------- */
+
+.sheet-footer {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10mm;
+  padding-top: 5.5mm;
+  font-size: 7pt;
+  color: #64748b;
+}
+
+/* ---------- Adaptación ---------- */
+
+@media (max-width: 900px) {
+  .calendar-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .calendar-controls__nav {
+    justify-content: space-between;
+  }
+
+  .control-field {
+    flex: 1;
+  }
+
+  .control-field select,
+  .control-field input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .calendar-page {
+    padding-top: 24px;
+  }
+
+  .calendar-controls {
+    padding: 12px;
+  }
+
+  .calendar-controls__nav {
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1.15fr) minmax(0, 0.85fr) 46px;
+    gap: 8px;
+  }
+
+  .control-field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .control-field span {
+    font-size: 10px;
+  }
+
+  .control-field select,
+  .control-field input {
+    height: 44px;
+    min-width: 0;
+    padding: 0 8px;
+    font-size: 14px;
+  }
+
+  .control-field select {
+    width: 100%;
+  }
+
+  .control-btn {
+    width: 46px;
+    height: 46px;
+  }
+
+  .calendar-controls .btn {
+    width: 100%;
+  }
+
+  .mobile-hint {
+    display: block;
+  }
+
+  .sheet-frame {
+    margin-top: 18px;
+    padding-inline: 8px;
+  }
+}
+
+
+/* ---------- Impresión ---------- */
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+@media print {
+  .calendar-page {
+    padding: 0;
+  }
+
+  .page-header,
+  .calendar-controls,
+  .print-hint,
+  .mobile-hint,
+  .site-header,
+  .site-footer {
+    display: none !important;
+  }
+
+  .sheet-frame {
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .sheet {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    box-shadow: none;
+    zoom: 1 !important;
+    break-after: auto;
+    page-break-after: auto;
+  }
+}

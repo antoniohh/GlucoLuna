@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#10214f"/>
+      <stop offset="0.55" stop-color="#1e3a8a"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.8" cy="0.2" r="0.6">
+      <stop offset="0" stop-color="#60a5fa" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#60a5fa" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <g transform="translate(80 66)">
+    <rect width="58" height="58" rx="16" fill="#ffffff" opacity="0.14"/>
+    <g transform="translate(10 10) scale(1.6)">
+      <path d="M14.5 2.8a8.6 8.6 0 1 0 6.7 12.7 9.5 9.5 0 0 1-6.7-12.7Z" fill="#ffffff"/>
+      <path d="M17.2 15.1s2.1 2.3 2.1 3.6a2.1 2.1 0 0 1-4.2 0c0-1.3 2.1-3.6 2.1-3.6Z" fill="#bfdbfe"/>
+    </g>
+    <text x="78" y="30" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#ffffff">GlucoLuna</text>
+    <text x="78" y="54" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" letter-spacing="2.4" fill="#bfdbfe">GLUCOSA NOCTURNA</text>
+  </g>
+
+  <text x="80" y="218" font-family="Arial, Helvetica, sans-serif" font-size="57" font-weight="700" fill="#ffffff">Tu glucosa de noche,</text>
+  <text x="80" y="286" font-family="Arial, Helvetica, sans-serif" font-size="57" font-weight="700" fill="#bfdbfe">clara y sin líos.</text>
+  <text x="80" y="344" font-family="Arial, Helvetica, sans-serif" font-size="23" fill="#dbeafe">Calendario mensual en A4 + guía visual de pinchazo.</text>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">
+    <rect x="80" y="386" width="142" height="42" rx="21" fill="#ffffff" opacity="0.13"/>
+    <text x="151" y="413" text-anchor="middle" fill="#ffffff">Letra grande</text>
+    <rect x="236" y="386" width="132" height="42" rx="21" fill="#ffffff" opacity="0.13"/>
+    <text x="302" y="413" text-anchor="middle" fill="#ffffff">Sin registro</text>
+    <rect x="382" y="386" width="160" height="42" rx="21" fill="#ffffff" opacity="0.13"/>
+    <text x="462" y="413" text-anchor="middle" fill="#ffffff">Imprimible</text>
+  </g>
+
+  <g transform="translate(760 110) rotate(5)">
+    <rect width="350" height="430" rx="22" fill="#ffffff"/>
+    <text x="28" y="48" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#0f172a">CONTROL NOCTURNO</text>
+    <rect x="238" y="24" width="86" height="34" rx="7" fill="#1e3a8a"/>
+    <text x="281" y="47" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#ffffff">OCTUBRE</text>
+    <line x1="28" y1="68" x2="322" y2="68" stroke="#0f172a" stroke-width="3"/>
+    <g font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#475569" text-anchor="middle">
+      <text x="52" y="94">L</text><text x="96" y="94">M</text><text x="140" y="94">X</text><text x="184" y="94">J</text><text x="228" y="94">V</text><text x="272" y="94">S</text><text x="316" y="94">D</text>
+    </g>
+    <g>
+      <rect x="28" y="108" width="288" height="60" fill="#f1f5f9" stroke="#0f172a" stroke-width="2"/>
+      <text x="42" y="132" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#1e3a8a">RECUERDE CADA NOCHE</text>
+      <text x="42" y="150" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#475569">Medir · apuntar dosis · marcar PINCHADA</text>
+      <rect x="320" y="108" width="0" height="0"/>
+    </g>
+    <g font-family="Arial, Helvetica, sans-serif">
+      <rect x="28" y="172" width="44" height="44" fill="#fff" stroke="#dbe3ee"/>
+      <text x="35" y="188" font-size="12" font-weight="700" fill="#fff" background="#0f172a">1</text>
+      <rect x="80" y="172" width="44" height="44" fill="#fff" stroke="#dbe3ee"/>
+      <rect x="132" y="172" width="44" height="44" fill="#fff" stroke="#dbe3ee"/>
+      <rect x="184" y="172" width="44" height="44" fill="#fff" stroke="#dbe3ee"/>
+      <rect x="236" y="172" width="44" height="44" fill="#fff" stroke="#dbe3ee"/>
+      <rect x="288" y="172" width="44" height="44" fill="#fff" stroke="#dbe3ee"/>
+      <rect x="28" y="226" width="44" height="44" fill="#fff" stroke="#dbe3ee"/>
+      <rect x="80" y="226" width="44" height="44" fill="#fff" stroke="#dbe3ee"/>
+      <rect x="132" y="226" width="44" height="44" fill="#fff" stroke="#dbe3ee"/>
+      <rect x="184" y="226" width="44" height="44" fill="#fff" stroke="#dbe3ee"/>
+      <rect x="236" y="226" width="44" height="44" fill="#fff" stroke="#dbe3ee"/>
+      <rect x="288" y="226" width="44" height="44" fill="#fff" stroke="#dbe3ee"/>
+      <rect x="28" y="280" width="44" height="44" fill="#fff" stroke="#dbe3ee"/>
+      <rect x="80" y="280" width="44" height="44" fill="#fff" stroke="#dbe3ee"/>
+      <rect x="132" y="280" width="44" height="44" fill="#fff" stroke="#dbe3ee"/>
+      <rect x="184" y="280" width="44" height="44" fill="#fff" stroke="#dbe3ee"/>
+      <rect x="236" y="280" width="44" height="44" fill="#fff" stroke="#dbe3ee"/>
+      <rect x="288" y="280" width="44" height="44" fill="#fff" stroke="#dbe3ee"/>
+    </g>
+    <g font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#0f172a">
+      <rect x="28" y="172" width="16" height="16" fill="#0f172a"/><text x="32" y="184" fill="#fff">1</text>
+      <rect x="80" y="172" width="16" height="16" fill="#0f172a"/><text x="84" y="184" fill="#fff">2</text>
+      <rect x="132" y="172" width="16" height="16" fill="#0f172a"/><text x="136" y="184" fill="#fff">3</text>
+      <rect x="184" y="172" width="16" height="16" fill="#0f172a"/><text x="188" y="184" fill="#fff">4</text>
+      <rect x="236" y="172" width="16" height="16" fill="#0f172a"/><text x="240" y="184" fill="#fff">5</text>
+      <rect x="288" y="172" width="16" height="16" fill="#0f172a"/><text x="292" y="184" fill="#fff">6</text>
+      <rect x="28" y="226" width="16" height="16" fill="#0f172a"/><text x="32" y="238" fill="#fff">7</text>
+      <rect x="80" y="226" width="16" height="16" fill="#0f172a"/><text x="84" y="238" fill="#fff">8</text>
+      <rect x="132" y="226" width="16" height="16" fill="#0f172a"/><text x="136" y="238" fill="#fff">9</text>
+      <rect x="184" y="226" width="16" height="16" fill="#0f172a"/><text x="186" y="238" fill="#fff">10</text>
+      <rect x="236" y="226" width="16" height="16" fill="#0f172a"/><text x="238" y="238" fill="#fff">11</text>
+      <rect x="288" y="226" width="16" height="16" fill="#0f172a"/><text x="290" y="238" fill="#fff">12</text>
+      <rect x="28" y="280" width="16" height="16" fill="#0f172a"/><text x="30" y="292" fill="#fff">13</text>
+      <rect x="80" y="280" width="16" height="16" fill="#0f172a"/><text x="82" y="292" fill="#fff">14</text>
+      <rect x="132" y="280" width="16" height="16" fill="#0f172a"/><text x="134" y="292" fill="#fff">15</text>
+      <rect x="184" y="280" width="16" height="16" fill="#0f172a"/><text x="186" y="292" fill="#fff">16</text>
+      <rect x="236" y="280" width="16" height="16" fill="#0f172a"/><text x="238" y="292" fill="#fff">17</text>
+      <rect x="288" y="280" width="16" height="16" fill="#0f172a"/><text x="290" y="292" fill="#fff">18</text>
+    </g>
+    <g font-family="Arial, Helvetica, sans-serif" font-size="8" fill="#64748b">
+      <text x="35" y="208">mg/dL</text><text x="35" y="262">mg/dL</text><text x="35" y="316">mg/dL</text>
+      <text x="87" y="208">mg/dL</text><text x="87" y="262">mg/dL</text><text x="87" y="316">mg/dL</text>
+      <text x="139" y="208">mg/dL</text><text x="139" y="262">mg/dL</text><text x="139" y="316">mg/dL</text>
+      <text x="191" y="208">mg/dL</text><text x="191" y="262">mg/dL</text><text x="191" y="316">mg/dL</text>
+      <text x="243" y="208">mg/dL</text><text x="243" y="262">mg/dL</text><text x="243" y="316">mg/dL</text>
+      <text x="295" y="208">mg/dL</text><text x="295" y="262">mg/dL</text><text x="295" y="316">mg/dL</text>
+    </g>
+    <text x="28" y="382" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#1e3a8a">Guía visual incluida</text>
+    <text x="28" y="404" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#475569">10 pasos con dibujos grandes</text>
+  </g>
+
+  <text x="80" y="566" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#bfdbfe">glucoluna · calendario y guía para casa</text>
+</svg>

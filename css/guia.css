@@ -1,0 +1,831 @@
+/* ============================================================
+   GlucoLuna · guía de pinchazo
+   4 hojas A4 + pasos visuales para personas mayores
+   ============================================================ */
+
+.guide-page {
+  padding: 34px 0 66px;
+}
+
+.guide-hint {
+  margin: 14px auto 0;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.guide-pages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  width: 100%;
+  margin-top: 26px;
+  padding-inline: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* ---------- Hoja A4 ---------- */
+
+.page {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  width: 210mm;
+  min-height: 297mm;
+  padding: 10mm 11mm 8mm;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.18);
+  transform-origin: top center;
+}
+
+.page-head {
+  flex: none;
+  margin-bottom: 3mm;
+  padding-bottom: 2.5mm;
+  border-bottom: 2.2px solid var(--navy);
+}
+
+.page-kicker {
+  margin-bottom: 1.3mm;
+  font-size: 8.5pt;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+  color: var(--navy);
+  text-transform: uppercase;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 22pt;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.page-lead {
+  max-width: 170mm;
+  margin: 1.6mm 0 0;
+  font-size: 10.5pt;
+  line-height: 1.32;
+  color: #475569;
+}
+
+/* ---------- Datos personales ---------- */
+
+.personal {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr 1fr;
+  gap: 3mm;
+  margin-top: 3mm;
+  padding: 2.5mm 3.5mm;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 2mm;
+}
+
+.personal__item {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.8mm;
+  min-width: 0;
+  font-size: 10pt;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.personal__line {
+  flex: 1;
+  height: 4.2mm;
+  min-width: 7mm;
+  border-bottom: 1.1px solid var(--ink);
+}
+
+/* ---------- Pasos visuales ---------- */
+
+.visual-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2mm;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.visual-step {
+  display: grid;
+  grid-template-columns: 11mm minmax(0, 1fr) 46mm;
+  gap: 3.2mm;
+  align-items: center;
+  min-height: 37mm;
+  padding: 2.2mm 2.8mm;
+  background: #fff;
+  border: 1px solid #dbe3ee;
+  border-radius: 2mm;
+  break-inside: avoid;
+}
+
+.visual-step__num {
+  display: grid;
+  width: 11mm;
+  height: 11mm;
+  place-items: center;
+  font-size: 15pt;
+  font-weight: 800;
+  line-height: 1;
+  color: #fff;
+  background: var(--navy);
+  border-radius: 50%;
+}
+
+.visual-step__text h3 {
+  margin: 0 0 0.9mm;
+  font-size: 12.5pt;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.visual-step__text p {
+  margin: 0;
+  font-size: 10.2pt;
+  line-height: 1.3;
+  color: #1e293b;
+}
+
+.visual-step__art {
+  height: 33mm;
+  padding: 1.5mm;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 2mm;
+}
+
+.visual-step__art svg {
+  width: 100%;
+  height: 100%;
+}
+
+.page-note {
+  margin: 3mm 0 0;
+  padding: 2.4mm 3.2mm;
+  font-size: 9.7pt;
+  line-height: 1.32;
+  color: #1e293b;
+  background: #f8fafc;
+  border-left: 3px solid var(--navy);
+}
+
+.page-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8mm;
+  margin-top: auto;
+  padding-top: 2.8mm;
+  font-size: 7.4pt;
+  color: #64748b;
+}
+
+/* ---------- Secciones de las hojas 3 y 4 ---------- */
+
+.section {
+  margin-bottom: 4mm;
+}
+
+.section h2 {
+  display: flex;
+  align-items: center;
+  gap: 2mm;
+  margin: 0 0 2.2mm;
+  font-size: 14.5pt;
+  line-height: 1.2;
+  color: var(--navy);
+}
+
+.section h2 svg {
+  flex: none;
+  width: 6mm;
+  height: 6mm;
+}
+
+/* Zonas */
+
+.sites {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.2mm;
+}
+
+.site {
+  display: flex;
+  gap: 2.6mm;
+  align-items: center;
+  padding: 2.2mm 2.6mm;
+  background: #fff;
+  border: 1px solid #dbe3ee;
+  border-radius: 2mm;
+}
+
+.site__icon {
+  flex: none;
+  width: 15mm;
+  height: 15mm;
+  padding: 1.2mm;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 2mm;
+}
+
+.site__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.site h3 {
+  margin: 0 0 0.6mm;
+  font-size: 12pt;
+  line-height: 1.2;
+}
+
+.site p {
+  margin: 0;
+  font-size: 10pt;
+  line-height: 1.3;
+  color: #334155;
+}
+
+.rotate {
+  display: flex;
+  gap: 2.6mm;
+  align-items: flex-start;
+  margin-top: 2.2mm;
+  padding: 2.5mm 3mm;
+  background: #eff6ff;
+  border: 1.3px solid #93c5fd;
+  border-radius: 2mm;
+}
+
+.rotate svg {
+  flex: none;
+  width: 7mm;
+  height: 7mm;
+  color: var(--navy);
+}
+
+.rotate p {
+  margin: 0;
+  font-size: 10pt;
+  line-height: 1.3;
+}
+
+/* Después */
+
+.after {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.2mm;
+}
+
+.after__item {
+  display: flex;
+  gap: 2.2mm;
+  align-items: flex-start;
+  padding: 2.4mm 2.6mm;
+  background: #fff;
+  border: 1px solid #dbe3ee;
+  border-radius: 2mm;
+}
+
+.after__icon {
+  display: grid;
+  flex: none;
+  width: 8mm;
+  height: 8mm;
+  place-items: center;
+  color: var(--navy);
+  background: #eff6ff;
+  border-radius: 50%;
+}
+
+.after__icon svg {
+  width: 5mm;
+  height: 5mm;
+}
+
+.after__item h3 {
+  margin: 0 0 0.5mm;
+  font-size: 10.5pt;
+  line-height: 1.2;
+}
+
+.after__item p {
+  margin: 0;
+  font-size: 9.5pt;
+  line-height: 1.3;
+  color: #334155;
+}
+
+/* Cajas */
+
+.box {
+  padding: 2.8mm 3.5mm;
+  border: 1.3px solid;
+  border-radius: 2mm;
+}
+
+.box h2 {
+  margin: 0 0 1.5mm;
+  font-size: 13.5pt;
+  line-height: 1.2;
+}
+
+.box p,
+.box li {
+  font-size: 10.5pt;
+  line-height: 1.35;
+}
+
+.box p:last-child {
+  margin-bottom: 0;
+}
+
+.box ul {
+  margin: 0;
+  padding-left: 4.6mm;
+}
+
+.box li + li {
+  margin-top: 0.7mm;
+}
+
+.box__subtitle {
+  margin-top: 1.8mm;
+}
+
+.box__last {
+  margin-top: 1.6mm;
+}
+
+.box--blue {
+  background: #eff6ff;
+  border-color: #93c5fd;
+}
+
+.box--blue h2 {
+  color: var(--navy);
+}
+
+.box--green {
+  background: #f0fdf4;
+  border-color: #86efac;
+}
+
+.box--green h2 {
+  color: #166534;
+}
+
+.box--red {
+  background: #fef2f2;
+  border-color: #fca5a5;
+  border-left: 5px solid #dc2626;
+}
+
+.box--red h2 {
+  color: #991b1b;
+}
+
+.box--amber {
+  background: #fffbeb;
+  border-color: #fcd34d;
+  border-left: 5px solid #f59e0b;
+}
+
+.box--amber h2 {
+  color: #b45309;
+}
+
+.box--spaced {
+  margin-top: 2.5mm;
+}
+
+.never {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2mm 4mm;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.never li {
+  position: relative;
+  padding-left: 5mm;
+  font-size: 10pt;
+  line-height: 1.3;
+}
+
+.never li::before {
+  position: absolute;
+  top: 0.6mm;
+  left: 0;
+  width: 3mm;
+  height: 3mm;
+  content: "";
+  background: #dc2626;
+  border-radius: 50%;
+}
+
+/* Seguridad */
+
+.hypo-steps {
+  margin: 1.8mm 0 0;
+  padding-left: 5.2mm;
+}
+
+.hypo-steps li {
+  margin-bottom: 1.1mm;
+  font-size: 10.5pt;
+  line-height: 1.32;
+}
+
+.emergency {
+  display: flex;
+  align-items: center;
+  gap: 3.2mm;
+  margin-top: 2.6mm;
+  padding: 2.8mm 3.5mm;
+  color: #fff;
+  background: #991b1b;
+  border-radius: 2mm;
+}
+
+.emergency__number {
+  flex: none;
+  font-size: 21pt;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.emergency p {
+  margin: 0;
+  font-size: 10.4pt;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.emergency-note {
+  margin-top: 2.2mm;
+}
+
+.contacts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.2mm 5mm;
+  margin-top: 1.8mm;
+}
+
+.contact {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.8mm;
+  font-size: 10pt;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.contact .line {
+  flex: 1;
+  height: 4.5mm;
+  border-bottom: 1.1px solid var(--ink);
+}
+
+.disclaimer {
+  margin-top: 3mm;
+  padding-top: 2.4mm;
+  font-size: 8.6pt;
+  line-height: 1.35;
+  color: #64748b;
+  border-top: 1px solid #cbd5e1;
+}
+
+/* ---------- Adaptación ---------- */
+
+@media (max-width: 700px) {
+  .guide-page {
+    padding-top: 24px;
+  }
+
+  .guide-pages {
+    margin-top: 18px;
+    padding-inline: 0;
+  }
+
+  .guide-hint {
+    font-size: 12px;
+  }
+}
+
+/* ---------- Lectura cómoda en móvil ----------
+   En pantalla pequeña las hojas dejan de ser A4 y se convierten
+   en secciones de lectura. La impresión sigue saliendo en A4. */
+
+@media screen and (max-width: 760px) {
+  .guide-pages {
+    display: block;
+    gap: 0;
+    padding-inline: 16px;
+    overflow: visible;
+  }
+
+  .page {
+    width: 100%;
+    min-height: 0;
+    margin: 0 auto 34px;
+    padding: 0;
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .page:last-child {
+    margin-bottom: 0;
+  }
+
+  .page-head {
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    border-bottom-width: 2px;
+  }
+
+  .page-kicker {
+    margin-bottom: 6px;
+    font-size: 11px;
+  }
+
+  .page-title {
+    font-size: 1.9rem;
+  }
+
+  .page-lead {
+    max-width: none;
+    margin-top: 8px;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .personal {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 16px;
+    padding: 14px;
+  }
+
+  .personal__item {
+    font-size: 14px;
+  }
+
+  .personal__line {
+    height: 22px;
+  }
+
+  .visual-steps {
+    gap: 14px;
+  }
+
+  .visual-step {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 12px;
+    min-height: 0;
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .visual-step__num {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .visual-step__text h3 {
+    margin-bottom: 4px;
+    font-size: 1.18rem;
+  }
+
+  .visual-step__text p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .visual-step__art {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: auto;
+    max-height: 220px;
+    aspect-ratio: 3 / 2;
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .page-note {
+    margin-top: 16px;
+    padding: 12px 14px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .page-footer {
+    display: none;
+  }
+
+  .section {
+    margin-bottom: 26px;
+  }
+
+  .section h2 {
+    gap: 8px;
+    margin-bottom: 12px;
+    font-size: 1.25rem;
+  }
+
+  .section h2 svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .sites {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .site {
+    gap: 12px;
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .site__icon {
+    width: 64px;
+    height: 64px;
+    padding: 7px;
+    border-radius: 12px;
+  }
+
+  .site h3 {
+    margin-bottom: 3px;
+    font-size: 1.1rem;
+  }
+
+  .site p,
+  .rotate p,
+  .after__item p,
+  .box p,
+  .box li,
+  .hypo-steps li,
+  .emergency p {
+    font-size: 0.98rem;
+    line-height: 1.45;
+  }
+
+  .rotate {
+    gap: 10px;
+    margin-top: 12px;
+    padding: 13px 14px;
+    border-radius: 12px;
+  }
+
+  .rotate svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .after {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .after__item {
+    gap: 12px;
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .after__icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .after__icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .after__item h3 {
+    margin-bottom: 3px;
+    font-size: 1rem;
+  }
+
+  .box {
+    padding: 14px 16px;
+    border-radius: 12px;
+  }
+
+  .box h2 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+
+  .never {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .never li {
+    padding-left: 22px;
+    font-size: 0.96rem;
+  }
+
+  .never li::before {
+    top: 7px;
+    width: 10px;
+    height: 10px;
+  }
+
+  .hypo-steps {
+    padding-left: 22px;
+  }
+
+  .emergency {
+    gap: 12px;
+    margin-top: 14px;
+    padding: 14px 16px;
+    border-radius: 12px;
+  }
+
+  .emergency__number {
+    font-size: 1.8rem;
+  }
+
+  .contacts {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .contact {
+    font-size: 0.98rem;
+  }
+
+  .contact .line {
+    height: 24px;
+  }
+
+  .disclaimer {
+    margin-top: 20px;
+    padding-top: 14px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+}
+
+/* ---------- Impresión ---------- */
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+@media print {
+  .guide-page {
+    padding: 0;
+  }
+
+  .page-header,
+  .guide-hint,
+  .site-header,
+  .site-footer {
+    display: none !important;
+  }
+
+  .guide-pages {
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .page {
+    margin: 0;
+    box-shadow: none;
+    zoom: 1 !important;
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+}
