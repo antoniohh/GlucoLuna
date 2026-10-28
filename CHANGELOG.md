@@ -2,6 +2,25 @@
 
 Todas las versiones relevantes de GlucoLuna. El proyecto sigue [Versionado Semántico](https://semver.org/lang/es/).
 
+## [2.1.0] — 2026-10-28
+
+Primera release de producción publicada. Consolida la migración a Astro 7, Tailwind CSS 4 y Lucide, el despliegue en GitHub Pages y las correcciones de la puesta en marcha.
+
+### Añadido
+
+- `sitemap.xml` y `robots.txt` explícitos en `public/`.
+- ZIP de producción y checksum SHA256.
+- Workflow de release para etiquetas `v*` con ZIP adjunto.
+- Autoría de Antonio Horrillo y licencia MIT en el footer y el README.
+- Badges de tecnologías y tabla de control de versiones.
+
+### Corregido
+
+- CI de GitHub Actions fijada a Node **22.23.4**, mínimo requerido por Astro 7.
+- Footer compacto en una sola línea.
+- Controles del calendario sin las etiquetas visibles «Mes» y «Año».
+- Cabeceras de calendario y guía unificadas.
+
 ## [2.0.0] — 2026-10-28
 
 ### Añadido

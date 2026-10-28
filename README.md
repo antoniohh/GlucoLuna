@@ -1,6 +1,6 @@
 # GlucoLuna
 
-[![Versión](https://img.shields.io/badge/versi%C3%B3n-2.0.0-1e3a8a?style=flat-square)](CHANGELOG.md)
+[![Versión](https://img.shields.io/badge/versi%C3%B3n-2.1.0-1e3a8a?style=flat-square)](CHANGELOG.md)
 [![Astro](https://img.shields.io/badge/Astro-7.4.2-BC52EE?style=flat-square&logo=astro&logoColor=white)](https://astro.build)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.3.3-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![Lucide](https://img.shields.io/badge/Lucide-1.62.0-F56565?style=flat-square&logo=lucide&logoColor=white)](https://lucide.dev)
@@ -147,19 +147,20 @@ Si cambias el nombre del repositorio o el usuario, actualiza `src/lib/site.ts` y
 
 ## Control de versiones
 
-Versión actual: **2.0.0** · [Historial completo](CHANGELOG.md)
+Versión actual: **2.1.0** · [Historial completo](CHANGELOG.md)
 
 | Versión | Fecha | Cambios principales |
 |---|---|---|
-| **2.0.0** | 2026-10-28 | Astro 7, Tailwind 4, Lucide, GitHub Pages y licencia MIT |
+| **2.1.0** | 2026-10-28 | Release de producción: sitemap, robots, CI estable y ZIP |
+| 2.0.0 | 2026-10-28 | Astro 7, Tailwind 4, Lucide, GitHub Pages y licencia MIT |
 | 1.1.0 | 2026-10-28 | Landing, menú fijo, guía visual y responsive |
 | 1.0.0 | 2026-10-27 | Calendario A4 y guía inicial |
 
 Para publicar una release:
 
 ```bash
-git tag -a v2.0.0 -m "GlucoLuna 2.0.0"
-git push origin v2.0.0
+git tag -a v2.1.0 -m "GlucoLuna 2.1.0"
+git push origin v2.1.0
 ```
 
 El workflow `release.yml` crea la release en GitHub y adjunta un ZIP del sitio compilado.
