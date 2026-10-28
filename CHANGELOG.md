@@ -13,6 +13,7 @@ Todas las versiones relevantes de GlucoLuna. El proyecto sigue [Versionado Semá
 - Workflow de release para etiquetas `v*`.
 - Licencia MIT y autoría en el pie de página.
 - `CHANGELOG.md`, badges y control de versiones en el README.
+- `sitemap.xml` y `robots.txt` explícitos en `public/`.
 - Configuración de `base: /GlucoLuna` para el repositorio de GitHub Pages.
 
 ### Corregido

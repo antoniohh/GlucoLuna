@@ -58,6 +58,7 @@ GlucoLuna/
 ├── public/
 │   ├── assets/
 │   ├── robots.txt
+│   ├── sitemap.xml
 │   ├── site.webmanifest
 │   └── .nojekyll
 ├── .github/workflows/
@@ -131,7 +132,7 @@ La configuración de Astro ya incluye:
 - `site: "https://antoniohh.github.io"`
 - `base: "/GlucoLuna"`
 - `build.format: "directory"`
-- Sitemap automático con `@astrojs/sitemap`
+- Sitemap estático en `public/sitemap.xml`
 
 Si cambias el nombre del repositorio o el usuario, actualiza `src/lib/site.ts` y `astro.config.mjs`.
 
@@ -140,7 +141,7 @@ Si cambias el nombre del repositorio o el usuario, actualiza `src/lib/site.ts` y
 - Títulos y descripciones únicos por página.
 - Canónicas, Open Graph y Twitter Cards.
 - Datos estructurados JSON-LD (`WebSite`, `WebApplication`, `FAQPage`, `MedicalWebPage`).
-- Sitemap generado en el build y `robots.txt`.
+- `sitemap.xml` y `robots.txt` en `public/`, copiados al build.
 - Imagen social `public/assets/og-image.png`.
 - Página 404 y manifiesto PWA.
 
