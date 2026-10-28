@@ -15,6 +15,10 @@ Todas las versiones relevantes de GlucoLuna. El proyecto sigue [Versionado Semá
 - `CHANGELOG.md`, badges y control de versiones en el README.
 - Configuración de `base: /GlucoLuna` para el repositorio de GitHub Pages.
 
+### Corregido
+
+- CI de GitHub Actions fijada a Node **22.23.4**, mínimo requerido por Astro 7.
+
 ### Cambiado
 
 - Estructura del proyecto a `src/`, `public/` y `dist/`.

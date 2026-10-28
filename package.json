@@ -30,6 +30,7 @@
     "url": "git+https://github.com/antoniohh/GlucoLuna.git"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=22.23.4",
+    "npm": ">=9.6.5"
   }
 }

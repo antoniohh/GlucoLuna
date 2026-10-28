@@ -4,7 +4,7 @@
 [![Astro](https://img.shields.io/badge/Astro-7.4.2-BC52EE?style=flat-square&logo=astro&logoColor=white)](https://astro.build)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.3.3-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![Lucide](https://img.shields.io/badge/Lucide-1.62.0-F56565?style=flat-square&logo=lucide&logoColor=white)](https://lucide.dev)
-[![Node](https://img.shields.io/badge/Node-22-339933?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org)
+[![Node](https://img.shields.io/badge/Node-22.23.4%2B-339933?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org)
 [![Licencia](https://img.shields.io/badge/licencia-MIT-yellow?style=flat-square)](LICENSE)
 [![Deploy](https://img.shields.io/badge/deploy-GitHub%20Pages-1e3a8a?style=flat-square&logo=github&logoColor=white)](https://antoniohh.github.io/GlucoLuna/)
 
