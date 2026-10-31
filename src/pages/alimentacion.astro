@@ -1,0 +1,439 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import {
+  Printer,
+  Clock,
+  Ban,
+  HeartPulse,
+  Wheat,
+  Salad,
+  Apple,
+  Fish,
+  Milk,
+  Flame,
+  Coffee,
+  Syringe,
+  Check,
+  X,
+  ShieldCheck,
+} from "@lucide/astro";
+import { absoluteUrl } from "../lib/site";
+import "../styles/alimentacion.css";
+
+const pageUrl = absoluteUrl("alimentacion/");
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  name: "10 Consejos sobre la alimentación para personas con diabetes",
+  url: pageUrl,
+  description:
+    "Guía clínica práctica de alimentación para personas con diabetes: qué comer a lo largo del día, qué alimentos preferir y cuáles evitar. Letra grande y formato A4.",
+  inLanguage: "es",
+  author: {
+    "@type": "Person",
+    name: "Antonio Horrillo",
+    url: "https://github.com/antoniohh",
+  },
+  isAccessibleForFree: true,
+  dateModified: "2026-10-31",
+  audience: {
+    "@type": "Patient",
+  },
+  about: {
+    "@type": "MedicalCondition",
+    name: "Diabetes",
+  },
+  isPartOf: {
+    "@type": "WebSite",
+    "@id": `${absoluteUrl("")}#website`,
+  },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Inicio",
+        item: absoluteUrl(""),
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Alimentación",
+        item: pageUrl,
+      },
+    ],
+  },
+};
+---
+
+<BaseLayout
+  title="Guía de alimentación para la diabetes | GlucoLuna"
+  description="10 consejos prácticos sobre alimentación para personas con diabetes: qué comer a lo largo del día, qué alimentos preferir y cuáles evitar. Letra grande y formato imprimible."
+  canonicalPath="alimentacion/"
+  active="alimentacion"
+  mainClass="nutrition-page"
+  ogType="article"
+  jsonLd={jsonLd}
+>
+  <div class="container">
+    <PageHeader
+      kicker="Guía práctica para casa"
+      title="10 Consejos sobre la alimentación"
+      lead="Pautas claras para el día a día: qué incluir en cada comida, qué alimentos conviene evitar y cómo organizar los horarios para mantener la glucosa estable."
+    >
+      <button class="btn btn--primary w-full min-[900px]:w-auto" type="button" id="print-nutrition">
+        <Printer size={19} aria-hidden="true" />
+        Imprimir guía en A4
+      </button>
+    </PageHeader>
+
+    <p class="nutrition-hint no-print">
+      Guía orientativa basada en el Servicio Extremeño de Salud (SES). Imprime en A4 vertical con «Gráficos de fondo» activado para tenerlo en la cocina o la nevera.
+    </p>
+
+    <!-- Banner destacado inicial -->
+    <section class="nutrition-hero-card" aria-label="Principios básicos de la alimentación">
+      <span class="nutrition-hero-card__kicker">
+        <ShieldCheck size={16} aria-hidden="true" />
+        Pilar fundamental del tratamiento
+      </span>
+      <h2>La alimentación debe ser sana, equilibrada y compartida</h2>
+      <p>
+        Comer de forma adecuada no significa cocinar aparte ni pasar hambre: es una alimentación saludable que puede y debe compartir toda la familia en la misma mesa.
+      </p>
+
+      <div class="nutrition-hero-points">
+        <div class="nutrition-hero-point">
+          <Clock size={20} class="nutrition-hero-point__icon" aria-hidden="true" />
+          <div>
+            <strong>Horarios y regularidad</strong>
+            <span>Comer a las mismas horas ayuda a evitar picos y bajadas bruscas de azúcar.</span>
+          </div>
+        </div>
+        <div class="nutrition-hero-point">
+          <Syringe size={20} class="nutrition-hero-point__icon" aria-hidden="true" />
+          <div>
+            <strong>Coordinación con la insulina</strong>
+            <span>La cantidad de hidratos de carbono debe estar coordinada con la pauta de su tratamiento.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bloque 1: Las 3 reglas de oro -->
+    <section aria-labelledby="reglas-title">
+      <div class="block-header">
+        <span class="block-header__tag">Recomendaciones iniciales</span>
+        <h2 id="reglas-title">Las 3 reglas de oro para empezar</h2>
+        <p>Tres hábitos esenciales que marcan la diferencia en el control del azúcar y del colesterol.</p>
+      </div>
+
+      <div class="golden-rules">
+        <!-- Consejo 1 -->
+        <article class="rule-card">
+          <div class="rule-card__top">
+            <span class="rule-badge" aria-hidden="true">1</span>
+            <span class="rule-card__icon rule-card__icon--blue">
+              <Clock size={22} aria-hidden="true" />
+            </span>
+          </div>
+          <h3>De 3 a 6 comidas al día</h3>
+          <p>
+            Reparta las comidas a lo largo del día. Según su tratamiento, es <strong>muy importante respetar los horarios</strong>, en especial si se inyecta insulina.
+          </p>
+          <ul class="rule-list">
+            <li>Mantenga horarios regulares cada día.</li>
+            <li>No se salte ninguna comida programada.</li>
+            <li>Coma una cantidad similar de los distintos grupos de alimentos cada día.</li>
+          </ul>
+        </article>
+
+        <!-- Consejo 2 -->
+        <article class="rule-card">
+          <div class="rule-card__top">
+            <span class="rule-badge" aria-hidden="true">2</span>
+            <span class="rule-card__icon rule-card__icon--red">
+              <Ban size={22} aria-hidden="true" />
+            </span>
+          </div>
+          <h3>Evite azúcares rápidos</h3>
+          <p>
+            Pasan directamente a la sangre en pocos minutos y provocan subidas bruscas de glucosa difíciles de controlar.
+          </p>
+          <ul class="rule-list">
+            <li><strong>Evite:</strong> azúcar, miel, zumos (incluso naturales), refrescos y colas.</li>
+            <li><strong>Elimine:</strong> bollería, golosinas, helados y dulces.</li>
+            <li><strong>Cuidado:</strong> alimentos con fructosa etiquetados «para personas con diabetes».</li>
+            <li><strong>Fruta entera:</strong> no más de 2 o 3 piezas al día.</li>
+          </ul>
+        </article>
+
+        <!-- Consejo 3 -->
+        <article class="rule-card">
+          <div class="rule-card__top">
+            <span class="rule-badge" aria-hidden="true">3</span>
+            <span class="rule-card__icon rule-card__icon--amber">
+              <HeartPulse size={22} aria-hidden="true" />
+            </span>
+          </div>
+          <h3>Controle el colesterol</h3>
+          <p>
+            Disminuya el consumo de grasas saturadas y trans para proteger el corazón y la circulación sanguínea.
+          </p>
+          <ul class="rule-list">
+            <li><strong>Siempre aceite de oliva:</strong> utilícelo tanto en crudo como para guisar.</li>
+            <li><strong>Limite:</strong> alimentos con mantequilla, manteca o tocino.</li>
+            <li><strong>Reduzca grasas saturadas:</strong> carnes grasas, yema de huevo y lácteos enteros.</li>
+            <li><strong>Elimine:</strong> fritos, precocinados y alimentos ultraprocesados.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Bloque 2: Un día cualquiera -->
+    <section aria-labelledby="plato-title">
+      <div class="block-header">
+        <span class="block-header__tag">Alimentación diaria</span>
+        <h2 id="plato-title">Alimentación de «un día cualquiera»</h2>
+        <p>A lo largo del día se deben incluir estos grupos de alimentos en las cantidades recomendadas:</p>
+      </div>
+
+      <div class="day-grid">
+        <!-- Consejo 4 -->
+        <article class="food-card">
+          <span class="food-card__num" aria-hidden="true">4</span>
+          <div class="food-card__content">
+            <h3 class="food-card__title">
+              <span class="food-card__icon"><Wheat size={20} aria-hidden="true" /></span>
+              Hidratos de absorción lenta
+            </h3>
+            <p>
+              Deben consumirse en <strong>todas las comidas principales</strong>. Dan energía constante sin subidas bruscas.
+            </p>
+            <p>
+              Preferiblemente aquellos con <strong>fibra</strong>: legumbres (lentejas, garbanzos, alubias, que además aportan proteínas sin grasa), guisantes y cereales integrales. Consumir en <em>menor cantidad</em> pasta, pan, arroz o patata.
+            </p>
+            <span class="food-card__pill food-card__pill--fiber">Ricos en fibra · Energía lenta</span>
+          </div>
+        </article>
+
+        <!-- Consejo 5 -->
+        <article class="food-card">
+          <span class="food-card__num" aria-hidden="true">5</span>
+          <div class="food-card__content">
+            <h3 class="food-card__title">
+              <span class="food-card__icon"><Salad size={20} aria-hidden="true" /></span>
+              Verdura y ensalada
+            </h3>
+            <p>
+              <strong>Un plato de verdura y un plato de ensalada</strong> al día. Son imprescindibles por las vitaminas, minerales, agua y fibra vegetal que contienen.
+            </p>
+            <p>
+              Procure que sean variadas y de <strong>diferentes colores</strong> (verde, rojo, naranja, morado) para enriquecer los nutrientes y ayudar a la saciedad.
+            </p>
+            <span class="food-card__pill food-card__pill--fiber">1 plato de verdura + 1 ensalada</span>
+          </div>
+        </article>
+
+        <!-- Consejo 6 -->
+        <article class="food-card">
+          <span class="food-card__num" aria-hidden="true">6</span>
+          <div class="food-card__content">
+            <h3 class="food-card__title">
+              <span class="food-card__icon"><Apple size={20} aria-hidden="true" /></span>
+              Fruta: 2 a 3 piezas medianas
+            </h3>
+            <p>
+              Consuma <strong>dos o tres frutas de tamaño mediano</strong>, variadas y de distintos colores, repartidas a lo largo de la jornada.
+            </p>
+            <p>
+              Tómelas <strong>siempre después de las comidas</strong>. Evite los zumos: al triturar la fruta sus azúcares quedan libres y pasan muy rápido a la sangre.
+            </p>
+            <span class="food-card__pill food-card__pill--portion">Siempre entera · Nunca en zumo</span>
+          </div>
+        </article>
+
+        <!-- Consejo 7 -->
+        <article class="food-card">
+          <span class="food-card__num" aria-hidden="true">7</span>
+          <div class="food-card__content">
+            <h3 class="food-card__title">
+              <span class="food-card__icon"><Fish size={20} aria-hidden="true" /></span>
+              Carne o pescado
+            </h3>
+            <p>
+              <strong>Dos raciones pequeñas al día:</strong> 120-130 gramos de carne o 150 gramos de pescado.
+            </p>
+            <p>
+              Dé prioridad al pescado (al menos 3 veces por semana) y a las carnes blancas y magras (pollo, pavo, conejo) frente a las carnes rojas y grasas.
+            </p>
+            <span class="food-card__pill food-card__pill--portion">Carne 120-130 g · Pescado 150 g</span>
+          </div>
+        </article>
+
+        <!-- Consejo 8 -->
+        <article class="food-card">
+          <span class="food-card__num" aria-hidden="true">8</span>
+          <div class="food-card__content">
+            <h3 class="food-card__title">
+              <span class="food-card__icon"><Milk size={20} aria-hidden="true" /></span>
+              Lácteos desnatados o semi
+            </h3>
+            <p>
+              <strong>Dos vasos grandes</strong> de leche descremada o semidescremada al día para asegurar el aporte de calcio sin grasas saturadas perjudiciales.
+            </p>
+            <p>
+              <strong>Equivalencia práctica:</strong> se puede sustituir un vaso de leche por <strong>2 yogures descremados</strong> o por <strong>100 gramos de queso fresco</strong>.
+            </p>
+            <span class="food-card__pill food-card__pill--portion">2 vasos de leche o equivalentes</span>
+          </div>
+        </article>
+
+        <!-- Consejo 9 -->
+        <article class="food-card">
+          <span class="food-card__num" aria-hidden="true">9</span>
+          <div class="food-card__content">
+            <h3 class="food-card__title">
+              <span class="food-card__icon"><Flame size={20} aria-hidden="true" /></span>
+              Grasas saludables
+            </h3>
+            <p>
+              Consuma grasas saludables en pequeñas cantidades: <strong>4 cucharadas soperas al día de aceite de oliva</strong> (para cocinar y en crudo).
+            </p>
+            <p>
+              Añada <strong>30 gramos de frutos secos</strong> (nueces, almendras sin sal ni freír) al menos 3 días por semana por su protección cardiovascular.
+            </p>
+            <span class="food-card__pill food-card__pill--portion">4 cucharadas de aceite · 30 g de frutos secos</span>
+          </div>
+        </article>
+
+        <!-- Consejo 10 -->
+        <article class="food-card">
+          <span class="food-card__num" aria-hidden="true">10</span>
+          <div class="food-card__content">
+            <h3 class="food-card__title">
+              <span class="food-card__icon"><Coffee size={20} aria-hidden="true" /></span>
+              Alcohol y café
+            </h3>
+            <p>
+              <strong>Consulte siempre a su médico o enfermero/a:</strong> el alcohol consumido en ayunas o con medicación puede provocar hipoglucemias graves e impredecibles.
+            </p>
+            <p>
+              Tome el café solo o con leche desnatada y sin azúcar. Evite las bebidas alcohólicas de alta graduación, combinados y licores dulces.
+            </p>
+            <span class="food-card__pill food-card__pill--alert">Consultar con su profesional sanitario</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Bloque 3: Tabla visual PREFERIR vs EVITAR -->
+    <section class="comparison-section" aria-labelledby="tabla-title">
+      <div class="block-header">
+        <span class="block-header__tag">Guía de compra y cocina</span>
+        <h2 id="tabla-title">¿Qué alimentos preferir y cuáles evitar?</h2>
+        <p>Resumen visual para la cesta de la compra y la preparación de los platos en casa.</p>
+      </div>
+
+      <div class="comparison-grid">
+        <!-- Tarjeta PREFERIR -->
+        <div class="comp-card comp-card--prefer">
+          <div class="comp-card__head">
+            <Check size={26} aria-hidden="true" />
+            <h3>Alimentos a preferir</h3>
+          </div>
+          <ul class="comp-card__list">
+            <li>
+              <span class="comp-icon--check"><Check size={18} aria-hidden="true" /></span>
+              <span><strong>Pescado:</strong> al menos 3 veces por semana (blanco o azul).</span>
+            </li>
+            <li>
+              <span class="comp-icon--check"><Check size={18} aria-hidden="true" /></span>
+              <span><strong>Carne blanca sobre carne roja:</strong> pollo, pavo, conejo y ternera magra.</span>
+            </li>
+            <li>
+              <span class="comp-icon--check"><Check size={18} aria-hidden="true" /></span>
+              <span><strong>Aceite de oliva:</strong> como grasa principal para cocinar y aliñar en crudo.</span>
+            </li>
+            <li>
+              <span class="comp-icon--check"><Check size={18} aria-hidden="true" /></span>
+              <span><strong>Formas de cocinado ligeras:</strong> plancha, horno, vapor, papillote o hervido.</span>
+            </li>
+            <li>
+              <span class="comp-icon--check"><Check size={18} aria-hidden="true" /></span>
+              <span><strong>Lácteos desnatados o semi:</strong> leche desnatada, yogur 0% y queso fresco bajo en grasa.</span>
+            </li>
+            <li>
+              <span class="comp-icon--check"><Check size={18} aria-hidden="true" /></span>
+              <span><strong>Legumbres y fibra:</strong> lentejas, garbanzos, alubias y cereales integrales.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tarjeta EVITAR -->
+        <div class="comp-card comp-card--avoid">
+          <div class="comp-card__head">
+            <X size={26} aria-hidden="true" />
+            <h3>Alimentos a evitar o limitar</h3>
+          </div>
+          <ul class="comp-card__list">
+            <li>
+              <span class="comp-icon--cross"><X size={18} aria-hidden="true" /></span>
+              <span><strong>Carnes procesadas y embutidos:</strong> chorizo, salchichón, patés, beicon y salchichas.</span>
+            </li>
+            <li>
+              <span class="comp-icon--cross"><X size={18} aria-hidden="true" /></span>
+              <span><strong>Carne roja:</strong> limitar a no más de una vez a la semana y retirar siempre las partes grasas.</span>
+            </li>
+            <li>
+              <span class="comp-icon--cross"><X size={18} aria-hidden="true" /></span>
+              <span><strong>Grasas saturadas y trans:</strong> mantequilla, margarinas, manteca de cerdo, aceite de palma y coco.</span>
+            </li>
+            <li>
+              <span class="comp-icon--cross"><X size={18} aria-hidden="true" /></span>
+              <span><strong>Alimentos fritos o rebozados:</strong> absorben gran cantidad de grasa perjudicial.</span>
+            </li>
+            <li>
+              <span class="comp-icon--cross"><X size={18} aria-hidden="true" /></span>
+              <span><strong>Lácteos enteros y quesos grasos:</strong> quesos curados, semicurados y nata.</span>
+            </li>
+            <li>
+              <span class="comp-icon--cross"><X size={18} aria-hidden="true" /></span>
+              <span><strong>Azúcares libres y zumos:</strong> bollería industrial, pasteles, refrescos con azúcar y miel.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bloque 4: Insulina -->
+    <div class="insulin-callout">
+      <Syringe size={32} class="insulin-callout__icon" aria-hidden="true" />
+      <div>
+        <h3>Importante si usa insulina</h3>
+        <p>
+          Revise con su profesional sanitario la dosis y el tipo de insulina recomendados para cada situación. No se salte comidas si se ha administrado insulina de acción rápida o mezclas, y mantenga cantidades similares de hidratos de carbono cada día para facilitar el ajuste de la dosis.
+        </p>
+      </div>
+    </div>
+
+    <!-- Bloque 5: Créditos clínicos -->
+    <div class="clinical-credit">
+      <p>
+        <strong>Fuente médica:</strong> Contenido adaptado del manual <em>«10 Consejos para la persona con diabetes sobre la alimentación»</em>. Grupo de Estudio de la Diabetes en Atención Primaria de la Salud (GEDAPS). Coordinación: I. Bobé, C. Lecumberri, J.F. Cano. Autores: I. Bobé, M. Bundó y C. Lecumberri. Distribuido por el <strong>Servicio Extremeño de Salud (SES)</strong>.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const printBtn = document.getElementById("print-nutrition");
+    if (printBtn) {
+      printBtn.addEventListener("click", () => {
+        window.print();
+      });
+    }
+  </script>
+</BaseLayout>

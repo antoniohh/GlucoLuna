@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://antoniohh.github.io/GlucoLuna/sitemap.xml
+Sitemap: https://glucoluna.antoniohorrillo.com/sitemap.xml

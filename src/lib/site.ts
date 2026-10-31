@@ -1,9 +1,9 @@
-export const SITE = "https://antoniohh.github.io";
-export const BASE = "/GlucoLuna";
+export const SITE = "https://glucoluna.antoniohorrillo.com";
+export const BASE = "";
 
 export function withBase(path = "") {
   const clean = path.replace(/^\/+/, "");
-  return `${BASE}/${clean}`;
+  return clean ? `/${clean}` : "/";
 }
 
 export function absoluteUrl(path = "") {

@@ -2,6 +2,27 @@
 
 Todas las versiones relevantes de GlucoLuna. El proyecto sigue [Versionado Semántico](https://semver.org/lang/es/).
 
+## [2.2.0] — 2026-10-31
+
+Segunda release relevante. Introduce la nueva sección de Alimentación basada en la guía clínica del Servicio Extremeño de Salud (SES) y soporte nativo para el dominio personalizado `glucoluna.antoniohorrillo.com`.
+
+### Añadido
+
+- Nueva sección **Guía de alimentación** (`/alimentacion/`) adaptada para personas con diabetes y sus cuidadores.
+- Desglose de los **10 consejos clínicos** de alimentación (GEDAPS / SES): horarios, azúcares rápidos, colesterol, hidratos de absorción lenta con fibra, raciones de verdura, fruta entera, carnes/pescados, lácteos desnatados, grasas saludables y precauciones con alcohol y café.
+- Tabla visual interactiva y de alto contraste de **Alimentos a preferir vs Alimentos a evitar o limitar**.
+- Bloque informativo destacado sobre la **coordinación de los hidratos con la dosis de insulina**.
+- Soporte de **impresión en A4** (`@media print` y botón «Imprimir guía en A4») optimizado para tener la guía en la cocina o pegada a la nevera.
+- Integración en la navegación global: nuevo enlace en [`Header.astro`](src/components/Header.astro), [`Footer.astro`](src/components/Footer.astro) y tercera tarjeta de herramienta en la portada (`index.astro`).
+- Archivo `CNAME` en `public/` y configuración del dominio `glucoluna.antoniohorrillo.com`.
+- Metadatos SEO y esquema estructurado Schema.org `MedicalWebPage` para la página de alimentación.
+- Nueva entrada en `sitemap.xml` para `/alimentacion/`.
+
+### Corregido
+
+- Corrección de rutas base en Astro para GitHub Pages: eliminación del prefijo estático `/GlucoLuna/` que provocaba errores 404 en assets y navegación al usar el dominio personalizado `glucoluna.antoniohorrillo.com`.
+- Enlaces y referencias canónicas actualizadas a la raíz del dominio personalizado.
+
 ## [2.1.0] — 2026-10-28
 
 Primera release de producción publicada. Consolida la migración a Astro 7, Tailwind CSS 4 y Lucide, el despliegue en GitHub Pages y las correcciones de la puesta en marcha.

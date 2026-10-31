@@ -1,19 +1,20 @@
 # GlucoLuna
 
-[![Versión](https://img.shields.io/badge/versi%C3%B3n-2.1.0-1e3a8a?style=flat-square)](CHANGELOG.md)
+[![Versión](https://img.shields.io/badge/versi%C3%B3n-2.2.0-1e3a8a?style=flat-square)](CHANGELOG.md)
 [![Astro](https://img.shields.io/badge/Astro-7.4.2-BC52EE?style=flat-square&logo=astro&logoColor=white)](https://astro.build)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.3.3-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![Lucide](https://img.shields.io/badge/Lucide-1.62.0-F56565?style=flat-square&logo=lucide&logoColor=white)](https://lucide.dev)
 [![Node](https://img.shields.io/badge/Node-22.23.4%2B-339933?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org)
 [![Licencia](https://img.shields.io/badge/licencia-MIT-yellow?style=flat-square)](LICENSE)
-[![Deploy](https://img.shields.io/badge/deploy-GitHub%20Pages-1e3a8a?style=flat-square&logo=github&logoColor=white)](https://antoniohh.github.io/GlucoLuna/)
+[![Deploy](https://img.shields.io/badge/deploy-GitHub%20Pages-1e3a8a?style=flat-square&logo=github&logoColor=white)](https://glucoluna.antoniohorrillo.com/)
 
 **Calendario nocturno de glucosa y guía visual de pinchazo con pluma.**
 
-GlucoLuna reúne dos herramientas pensadas para usar en casa:
+GlucoLuna reúne tres herramientas pensadas para usar en casa:
 
 - Un **calendario mensual imprimible** para apuntar la glucosa (`mg/dL`), la dosis (`Unid.`) y marcar la casilla de pinchada.
 - Una **guía visual de pinchazo** con letra grande, dibujos y explicaciones paso a paso para preparar la pluma, ajustar la dosis, poner y quitar la aguja y actuar si baja el azúcar.
+- Una **guía de alimentación** con los 10 consejos clínicos del SES / GEDAPS: grupos de alimentos para el día a día, tabla de qué preferir y qué evitar, coordinación con la insulina y formato A4 imprimible para la nevera.
 
 No necesita registro ni base de datos. Es una web estática, sin React ni islas de cliente: **Astro genera HTML estático**, y el JavaScript solo se usa para el menú móvil, la navegación del calendario y el ajuste de las hojas A4.
 
@@ -120,21 +121,21 @@ En el diálogo del navegador:
 
 ## Despliegue en GitHub Pages
 
-El repositorio ya está configurado para `https://antoniohh.github.io/GlucoLuna/`.
+El repositorio está configurado para el dominio personalizado `https://glucoluna.antoniohorrillo.com/`.
 
 1. Sube los cambios a `main`.
 2. En GitHub entra en **Settings → Pages**.
 3. En **Build and deployment**, elige **GitHub Actions**.
 4. El workflow `.github/workflows/deploy.yml` hará el build y publicará `dist/` automáticamente.
 
-La configuración de Astro ya incluye:
+La configuración de Astro incluye:
 
-- `site: "https://antoniohh.github.io"`
-- `base: "/GlucoLuna"`
+- `site: "https://glucoluna.antoniohorrillo.com"`
 - `build.format: "directory"`
 - Sitemap estático en `public/sitemap.xml`
+- Dominio personalizado en `public/CNAME`
 
-Si cambias el nombre del repositorio o el usuario, actualiza `src/lib/site.ts` y `astro.config.mjs`.
+Si cambias el dominio o la ruta base, actualiza `src/lib/site.ts`, `astro.config.mjs` y `public/CNAME`.
 
 ## SEO
 
@@ -147,11 +148,12 @@ Si cambias el nombre del repositorio o el usuario, actualiza `src/lib/site.ts` y
 
 ## Control de versiones
 
-Versión actual: **2.1.0** · [Historial completo](CHANGELOG.md)
+Versión actual: **2.2.0** · [Historial completo](CHANGELOG.md)
 
 | Versión | Fecha | Cambios principales |
 |---|---|---|
-| **2.1.0** | 2026-10-28 | Release de producción: sitemap, robots, CI estable y ZIP |
+| **2.2.0** | 2026-10-31 | Nueva sección de Alimentación (10 consejos SES/GEDAPS), tabla de preferir/evitar, formato A4 imprimible y soporte para dominio personalizado |
+| 2.1.0 | 2026-10-28 | Release de producción: sitemap, robots, CI estable y ZIP |
 | 2.0.0 | 2026-10-28 | Astro 7, Tailwind 4, Lucide, GitHub Pages y licencia MIT |
 | 1.1.0 | 2026-10-28 | Landing, menú fijo, guía visual y responsive |
 | 1.0.0 | 2026-10-27 | Calendario A4 y guía inicial |
@@ -159,8 +161,8 @@ Versión actual: **2.1.0** · [Historial completo](CHANGELOG.md)
 Para publicar una release:
 
 ```bash
-git tag -a v2.1.0 -m "GlucoLuna 2.1.0"
-git push origin v2.1.0
+git tag -a v2.2.0 -m "GlucoLuna 2.2.0"
+git push origin v2.2.0
 ```
 
 El workflow `release.yml` crea la release en GitHub y adjunta un ZIP del sitio compilado.

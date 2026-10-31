@@ -1,7 +1,7 @@
 {
   "name": "glucoluna",
   "type": "module",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -23,7 +23,7 @@
   },
   "author": "Antonio Horrillo (https://github.com/antoniohh)",
   "license": "MIT",
-  "homepage": "https://antoniohh.github.io/GlucoLuna/",
+  "homepage": "https://glucoluna.antoniohorrillo.com/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/antoniohh/GlucoLuna.git"

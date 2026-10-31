@@ -3,7 +3,7 @@ import { Menu, X } from "@lucide/astro";
 import { withBase } from "../lib/site";
 
 interface Props {
-  active?: "inicio" | "calendario" | "guia" | null;
+  active?: "inicio" | "calendario" | "guia" | "alimentacion" | null;
 }
 
 const { active = null } = Astro.props;
@@ -12,6 +12,7 @@ const links = [
   { id: "inicio", label: "Inicio", href: withBase("") },
   { id: "calendario", label: "Calendario", href: withBase("calendario/") },
   { id: "guia", label: "Guía de pinchazo", href: withBase("guia-pinchazo/") },
+  { id: "alimentacion", label: "Alimentación", href: withBase("alimentacion/") },
 ] as const;
 ---
 
