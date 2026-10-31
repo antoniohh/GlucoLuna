@@ -2,6 +2,14 @@
 
 Todas las versiones relevantes de GlucoLuna. El proyecto sigue [Versionado Semántico](https://semver.org/lang/es/).
 
+## [2.2.1] — 2026-11-01
+
+Integración y configuración de analítica web.
+
+### Añadido
+
+- Integración de la etiqueta de Google (`gtag.js`) con ID de medición `G-PZ3W1DHYWT` en [`BaseLayout.astro`](src/layouts/BaseLayout.astro) con soporte `is:inline` en todas las páginas del sitio.
+
 ## [2.2.0] — 2026-10-31
 
 Segunda release relevante. Introduce la nueva sección de Alimentación basada en la guía clínica del Servicio Extremeño de Salud (SES) y soporte nativo para el dominio personalizado `glucoluna.antoniohorrillo.com`.
