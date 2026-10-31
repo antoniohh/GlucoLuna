@@ -2,6 +2,19 @@
 
 Todas las versiones relevantes de GlucoLuna. El proyecto sigue [Versionado Semántico](https://semver.org/lang/es/).
 
+## [2.2.2] — 2026-11-01
+
+Formato imprimible en 2 hojas A4 para la Guía de Alimentación, sistema de consentimiento de cookies y cumplimiento RGPD / AEPD.
+
+### Añadido
+
+- **Formato A4 imprimible para la Guía de Alimentación** ([`alimentacion.astro`](src/pages/alimentacion.astro) y [`alimentacion.css`](src/styles/alimentacion.css)): maquetación idéntica a la Guía del Pinchazo con 2 hojas A4 exactas (`210mm x 297mm`), escalado inteligente con `guia.js`, ficha personal para horarios y teléfonos médicos para rellenar a mano, y salida perfecta en 2 páginas al imprimir.
+- Soporte para **Google Consent Mode v2** en [`BaseLayout.astro`](src/layouts/BaseLayout.astro): bloqueo previo por defecto de cookies analíticas (`analytics_storage: 'denied'`).
+- Componente nativo [`CookieBanner.astro`](src/components/CookieBanner.astro) con banner accesible y modal interactivo para configurar preferencias («Aceptar todas», «Rechazar no esenciales» y «Guardar selección»).
+- Nueva página de **Política de cookies** ([`/cookies/`](src/pages/cookies.astro)) con tabla de cookies, finalidades, plazos de conservación, enlaces de configuración de navegadores y botón directo para modificar el consentimiento.
+- Enlaces permanentes de «Política de cookies» y «Preferencias de cookies» en el pie de página global ([`Footer.astro`](src/components/Footer.astro)).
+- Entrada de `/cookies/` en `sitemap.xml`.
+
 ## [2.2.1] — 2026-11-01
 
 Integración y configuración de analítica web.

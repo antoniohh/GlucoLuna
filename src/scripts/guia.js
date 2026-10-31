@@ -7,7 +7,9 @@
   const A4_WIDTH_PX = (210 * 96) / 25.4;
   const frame = document.getElementById("guide-pages");
   const pages = frame ? Array.from(frame.querySelectorAll(".page")) : [];
-  const printButton = document.getElementById("print-guide");
+  const printButton =
+    document.getElementById("print-guide") ||
+    document.getElementById("print-nutrition");
   const mobileReading = window.matchMedia("(max-width: 760px)");
 
   if (!frame || !pages.length) {
