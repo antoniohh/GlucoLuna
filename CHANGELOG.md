@@ -2,18 +2,23 @@
 
 Todas las versiones relevantes de GlucoLuna. El proyecto sigue [Versionado Semántico](https://semver.org/lang/es/).
 
-## [2.2.2] — 2026-11-01
+## [2.3.0] — 2026-11-01
 
-Formato imprimible en 2 hojas A4 para la Guía de Alimentación, sistema de consentimiento de cookies y cumplimiento RGPD / AEPD.
+Tercera release relevante. Introduce la Guía de Alimentación en formato imprimible de 2 hojas A4, selector dinámico de mes en el calendario, cumplimiento estricto de privacidad (RGPD / AEPD) con Google Consent Mode v2 y aviso de cookies nativo.
 
 ### Añadido
 
-- **Formato A4 imprimible para la Guía de Alimentación** ([`alimentacion.astro`](src/pages/alimentacion.astro) y [`alimentacion.css`](src/styles/alimentacion.css)): maquetación idéntica a la Guía del Pinchazo con 2 hojas A4 exactas (`210mm x 297mm`), escalado inteligente con `guia.js`, ficha personal para horarios y teléfonos médicos para rellenar a mano, y salida perfecta en 2 páginas al imprimir.
-- Soporte para **Google Consent Mode v2** en [`BaseLayout.astro`](src/layouts/BaseLayout.astro): bloqueo previo por defecto de cookies analíticas (`analytics_storage: 'denied'`).
-- Componente nativo [`CookieBanner.astro`](src/components/CookieBanner.astro) con banner accesible y modal interactivo para configurar preferencias («Aceptar todas», «Rechazar no esenciales» y «Guardar selección»).
-- Nueva página de **Política de cookies** ([`/cookies/`](src/pages/cookies.astro)) con tabla de cookies, finalidades, plazos de conservación, enlaces de configuración de navegadores y botón directo para modificar el consentimiento.
+- **Formato A4 imprimible para la Guía de Alimentación** ([`alimentacion.astro`](src/pages/alimentacion.astro) y [`alimentacion.css`](src/styles/alimentacion.css)): maquetación idéntica a la Guía del Pinchazo con 2 hojas A4 exactas (`210mm x 297mm`), escalado inteligente con `guia.js`, ficha de horarios y teléfonos de salud para rellenar a mano, y salida perfecta en 2 páginas A4 al imprimir desde el navegador.
+- **Selector de mes dinámico en el Calendario** ([`calendario.js`](src/scripts/calendario.js)): apertura automática en el mes y año en curso del usuario (`new Date()`) en lugar de un mes estático.
+- **Sistema de consentimiento de cookies y Google Consent Mode v2** ([`BaseLayout.astro`](src/layouts/BaseLayout.astro)): bloqueo analítico previo por defecto (`analytics_storage: 'denied'`).
+- **Componente accesible [`CookieBanner.astro`](src/components/CookieBanner.astro)** con aviso flotante inferior y modal interactivo para aceptar, rechazar o configurar preferencias con persistencia en `localStorage`.
+- **Página de Política de cookies** ([`/cookies/`](src/pages/cookies.astro)) con tabla de cookies, titularidad, finalidades, plazos de conservación, enlaces para navegadores y botón interactivo para cambiar preferencias.
 - Enlaces permanentes de «Política de cookies» y «Preferencias de cookies» en el pie de página global ([`Footer.astro`](src/components/Footer.astro)).
 - Entrada de `/cookies/` en `sitemap.xml`.
+
+### Corregido
+
+- Corrección de alineación de iconos en la Guía de Alimentación: visualización limpia de los números circulares del 1 al 10 en las cabeceras de tarjeta sin superposición sobre los textos.
 
 ## [2.2.1] — 2026-11-01
 

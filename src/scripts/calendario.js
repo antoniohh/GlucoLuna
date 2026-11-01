@@ -26,9 +26,11 @@ const REMINDER = [
 
 const A4_WIDTH_PX = (210 * 96) / 25.4;
 
+const today = new Date();
+
 const state = {
-  year: 2026,
-  month: 9, // 0 = enero
+  year: today.getFullYear(),
+  month: today.getMonth(), // 0 = enero
 };
 
 // Enlaces directos: /calendario/?m=11&y=2026

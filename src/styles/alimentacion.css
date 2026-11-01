@@ -44,6 +44,11 @@
   box-sizing: border-box;
 }
 
+.page svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .page-head {
   flex: none;
   margin-bottom: 2.2mm;
@@ -448,6 +453,7 @@
 .cooking-card h4 svg {
   width: 4.2mm;
   height: 4.2mm;
+  flex-shrink: 0;
 }
 
 .cooking-card p {
