@@ -2,6 +2,20 @@
 
 Todas las versiones relevantes de GlucoLuna. El proyecto sigue [Versionado Semántico](https://semver.org/lang/es/).
 
+## [2.3.1] — 2026-11-01
+
+Corrección y paridad de diseño responsive para la sección de alimentación en dispositivos móviles.
+
+### Corregido
+
+- **Diseño responsive de la Guía de Alimentación en móvil** ([`alimentacion.css`](src/styles/alimentacion.css)): adaptación para igualar exactamente la experiencia y estética visual de la guía del pinchazo en pantallas pequeñas (`< 760px`).
+  - Desactivación del contenedor rígido de folio A4 en móvil para convertirlo en un flujo de lectura cómodo y natural con tarjetas blancas redondeadas (`14px`) y sombra suave sobre fondo transparente.
+  - Tipografía y títulos adaptados con jerarquía accesible para personas mayores (título `1.9rem`, subtítulo `11px`, descripciones a `0.98rem` con interlineado `1.5`).
+  - Tarjetas de los 7 grupos de alimentos del día (`.day-item`) con el mismo patrón visual que los pasos del pinchazo (número circular destacado de `38px` a la izquierda y contenido a la derecha con badges informativos).
+  - Ficha de horarios (`.personal`) y teléfonos de salud (`.contact-item`) adaptados a 1 columna completa con líneas de escritura extendidas.
+  - Tabla comparativa de alimentos («preferir» vs. «evitar») y técnicas de cocina ligera optimizadas para lectura vertical.
+  - Ocultación del pie de página de impresión (`.page-footer`) en pantalla móvil manteniendo la salida estricta en 2 folios A4 al imprimir desde cualquier dispositivo.
+
 ## [2.3.0] — 2026-11-01
 
 Tercera release relevante. Introduce la Guía de Alimentación en formato imprimible de 2 hojas A4, selector dinámico de mes en el calendario, cumplimiento estricto de privacidad (RGPD / AEPD) con Google Consent Mode v2 y aviso de cookies nativo.
