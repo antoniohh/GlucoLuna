@@ -122,10 +122,38 @@ const jsonLd = {
         </div>
       </section>
 
-      <!-- 3. Cómo gestionar o revocar el consentimiento -->
+      <!-- 3. Funcionamiento de Google Consent Mode v2 -->
+      <section class="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
+        <h2 class="mb-4 text-xl font-extrabold text-[#0f172a] flex items-center gap-2">
+          <ShieldCheck class="text-[#1e3a8a]" size={24} aria-hidden="true" />
+          3. Funcionamiento de Google Consent Mode v2
+        </h2>
+        <p class="mb-3">
+          Cumplimos rigurosamente con el Reglamento General de Protección de Datos (RGPD) y las directrices de la Agencia Española de Protección de Datos (AEPD), implementando la especificación técnica oficial <strong>Google Consent Mode v2</strong>:
+        </p>
+        <ul class="space-y-2 list-disc list-inside text-sm mb-4">
+          <li>
+            <strong>Visitantes del Espacio Económico Europeo (España y UE), Reino Unido y Suiza:</strong> Todas las señales de consentimiento (<code>analytics_storage</code>, <code>ad_storage</code>, <code>ad_user_data</code> y <code>ad_personalization</code>) nacen <strong>estrictamente denegadas (<code>denied</code>)</strong> por defecto en la cabecera.
+          </li>
+          <li>
+            <strong>Si rechazas las cookies no esenciales:</strong> No se escribe ninguna cookie en tu navegador. Google Analytics opera únicamente con pings de medición agregada sin cookies ni identificadores personales.
+          </li>
+          <li>
+            <strong>Si pulsas «Aceptar todas»:</strong> Se habilita la medición analítica con cookies (<code>_ga</code> y <code>_ga_PZ3W1DHYWT</code>). Las señales de Consent Mode v2 se transmiten a Google como <code>granted</code> para certificar la autorización, garantizando que <strong>GlucoLuna no realiza publicidad personalizada ni comercializa datos</strong>.
+          </li>
+          <li>
+            <strong>Visitantes internacionales (fuera del EEE):</strong> El consentimiento nace concedido de acuerdo con los marcos legales de sus territorios.
+          </li>
+        </ul>
+        <p class="text-xs text-slate-500">
+          Tu preferencia se guarda en <code>localStorage</code> (<code>glucoluna_cookie_consent</code>) exclusivamente en tu propio dispositivo.
+        </p>
+      </section>
+
+      <!-- 4. Cómo gestionar o revocar el consentimiento -->
       <section class="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
         <h2 class="mb-4 text-xl font-extrabold text-[#0f172a]">
-          3. Cómo gestionar o cambiar tus preferencias en cualquier momento
+          4. Cómo gestionar o cambiar tus preferencias en cualquier momento
         </h2>
         <p class="mb-4">
           Conforme a las directrices de la Agencia Española de Protección de Datos (AEPD) y el RGPD europeo, puedes modificar o revocar tu consentimiento en cualquier momento pulsando el siguiente botón:
@@ -145,10 +173,10 @@ const jsonLd = {
         </p>
       </section>
 
-      <!-- 4. Gestión en el navegador -->
+      <!-- 5. Gestión en el navegador -->
       <section class="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
         <h2 class="mb-4 text-xl font-extrabold text-[#0f172a]">
-          4. Cómo desactivar o borrar cookies desde tu navegador
+          5. Cómo desactivar o borrar cookies desde tu navegador
         </h2>
         <p class="mb-4">
           Puedes permitir, bloquear o eliminar las cookies instaladas en tu equipo mediante la configuración de las opciones del navegador que utilices:
@@ -197,10 +225,10 @@ const jsonLd = {
         </ul>
       </section>
 
-      <!-- 5. Responsable -->
+      <!-- 6. Responsable -->
       <section class="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
         <h2 class="mb-4 text-xl font-extrabold text-[#0f172a]">
-          5. Responsable del sitio y contacto
+          6. Responsable del sitio y contacto
         </h2>
         <p class="mb-2">
           El responsable del sitio GlucoLuna es <strong>Antonio Horrillo</strong>.

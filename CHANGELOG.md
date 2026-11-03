@@ -2,6 +2,29 @@
 
 Todas las versiones relevantes de GlucoLuna. El proyecto sigue [Versionado Semántico](https://semver.org/lang/es/).
 
+## [2.4.0] — 2026-11-03
+
+Soporte completo como Progressive Web App (PWA) con instalación en Chrome móvil, implementación de Google Consent Mode v2 delimitado por región y actualización de la política de privacidad y cookies.
+
+### Añadido
+
+- **Soporte PWA e Instalación en Chrome Móvil ([`InstallPrompt.astro`](src/components/InstallPrompt.astro), [`sw.js`](public/sw.js))**:
+  - Incorporación de Service Worker oficial (`public/sw.js`) con estrategia de caché estática offline para cumplir los criterios obligatorios de instalabilidad PWA en Google Chrome y navegadores Chromium.
+  - Creación del componente `InstallPrompt.astro`: banner responsivo inferior que detecta el evento `beforeinstallprompt` en dispositivos móviles, con diseño en fondo oscuro `slate-900/95`, icono corporativo de 192px y botón en azul identidad (`bg-blue-600 hover:bg-blue-500 text-white`).
+  - Detección de visualización `standalone` para no mostrar el aviso si la app ya fue instalada, y persistencia del descarte en `sessionStorage`.
+  - Registro de Service Worker en el `<head>` de `BaseLayout.astro`.
+
+### Modificado y Mejorado
+
+- **Google Consent Mode v2 Delimitado por Región ([`BaseLayout.astro`](src/layouts/BaseLayout.astro))**:
+  - Estado predeterminado `denied` en las cuatro señales (`analytics_storage`, `ad_storage`, `ad_user_data`, `ad_personalization`) delimitado específicamente a los 30 países del Espacio Económico Europeo (EEE), Reino Unido y Suiza.
+  - Inicialización en concedido para visitantes fuera del EEE conforme a las directrices de Google Analytics 4, evitando la penalización de tasa de consentimiento del 0 %.
+  - Sincronización inmediata de decisión guardada en `localStorage` antes de invocar `gtag('config')`.
+- **Aviso y Política de Cookies ([`CookieBanner.astro`](src/components/CookieBanner.astro), [`cookies.astro`](src/pages/cookies.astro))**:
+  - Emisión del paquete íntegro de 4 señales en `applyConsent`.
+  - Ajuste del texto del banner: aclara que solo se guardan cookies con permiso previo y que no existe publicidad personalizada.
+  - Creada la sección «3. Funcionamiento de Google Consent Mode v2» en la página de política de cookies detallando la navegación cookieless ante el rechazo.
+
 ## [2.3.1] — 2026-11-01
 
 Corrección y paridad de diseño responsive para la sección de alimentación en dispositivos móviles.

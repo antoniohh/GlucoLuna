@@ -18,9 +18,7 @@ import { withBase } from "../lib/site";
       <div class="cookie-banner__text">
         <p class="cookie-banner__title">Uso de cookies en GlucoLuna</p>
         <p class="cookie-banner__desc">
-          Utilizamos únicamente cookies analíticas opcionales (Google Analytics) para conocer de forma anónima
-          el uso del calendario y las guías, ayudándonos a mejorarlas. No usamos cookies de publicidad ni rastreamos
-          datos personales. Puedes aceptar, rechazar o configurar tus preferencias.
+          Utilizamos Google Analytics con Consent Mode v2 para conocer de forma anónima y agregada el uso del calendario y las guías. Solo guardamos cookies y registramos estadísticas si nos das tu permiso. No mostramos publicidad personalizada ni rastreamos datos personales. Puedes aceptar, rechazar o configurar tus preferencias.
           <a href={withBase("cookies/")} class="cookie-banner__link">Más información</a>.
         </p>
       </div>
@@ -494,8 +492,12 @@ import { withBase } from "../lib/site";
 
       // Actualizar Google Consent Mode v2
       if (typeof (window as any).gtag === "function") {
+        const state = isGranted ? "granted" : "denied";
         (window as any).gtag("consent", "update", {
-          analytics_storage: isGranted ? "granted" : "denied"
+          analytics_storage: state,
+          ad_storage: state,
+          ad_user_data: state,
+          ad_personalization: state,
         });
       }
 

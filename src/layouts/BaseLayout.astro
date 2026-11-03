@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CookieBanner from "../components/CookieBanner.astro";
+import InstallPrompt from "../components/InstallPrompt.astro";
 import { absoluteUrl, withBase } from "../lib/site";
 
 interface Props {
@@ -37,26 +38,54 @@ const ogImage = absoluteUrl("assets/og-image.png");
     <!-- Google Consent Mode v2 & Google tag (gtag.js) -->
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag() {
+        dataLayer.push(arguments);
+      }
 
       var savedConsent = null;
       try {
-        savedConsent = localStorage.getItem('glucoluna_cookie_consent');
+        savedConsent = localStorage.getItem("glucoluna_cookie_consent");
       } catch (e) {}
 
-      var isGranted = savedConsent === 'granted';
-
-      gtag('consent', 'default', {
-        'analytics_storage': isGranted ? 'granted' : 'denied',
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'wait_for_update': 500
+      // 1. Regla específica primero: Territorios bajo RGPD (EEE + Reino Unido + Suiza).
+      // Bloqueo estricto por defecto hasta que el usuario interactúe con el banner.
+      gtag("consent", "default", {
+        analytics_storage: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        wait_for_update: 500,
+        region: [
+          "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR",
+          "DE", "GR", "HU", "IS", "IE", "IT", "LV", "LI", "LT", "LU",
+          "MT", "NL", "NO", "PL", "PT", "RO", "SK", "SI", "ES", "SE",
+          "GB", "CH",
+        ],
       });
 
-      gtag('js', new Date());
-      gtag('config', 'G-PZ3W1DHYWT', {
-        'anonymize_ip': true
+      // 2. Regla global (resto del mundo fuera del EEE): concedido por defecto.
+      gtag("consent", "default", {
+        analytics_storage: "granted",
+        ad_storage: "granted",
+        ad_user_data: "granted",
+        ad_personalization: "granted",
+      });
+
+      // 3. Si el usuario ya tomó una decisión previa, se envía 'update' inmediatamente
+      // en <head> antes de gtag('config') para que Google registre la transición
+      // default -> update ('r' si aceptó, 'q' si rechazó) en el parámetro gcd.
+      if (savedConsent === "granted" || savedConsent === "denied") {
+        gtag("consent", "update", {
+          analytics_storage: savedConsent,
+          ad_storage: savedConsent,
+          ad_user_data: savedConsent,
+          ad_personalization: savedConsent,
+        });
+      }
+
+      gtag("js", new Date());
+      gtag("config", "G-PZ3W1DHYWT", {
+        anonymize_ip: true,
       });
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PZ3W1DHYWT"></script>
@@ -93,6 +122,15 @@ const ogImage = absoluteUrl("assets/og-image.png");
     <link rel="apple-touch-icon" href={withBase("assets/apple-touch-icon.png")} />
     <link rel="manifest" href={withBase("site.webmanifest")} />
 
+    <!-- PWA Service Worker -->
+    <script is:inline>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("/sw.js").catch(function () {});
+        });
+      }
+    </script>
+
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
   </head>
 
@@ -104,6 +142,7 @@ const ogImage = absoluteUrl("assets/og-image.png");
     </main>
     <Footer />
     <CookieBanner />
+    <InstallPrompt />
     <script>
       import "../scripts/ui.js";
     </script>
