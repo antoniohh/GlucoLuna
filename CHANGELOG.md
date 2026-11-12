@@ -2,6 +2,22 @@
 
 Todas las versiones relevantes de GlucoLuna. El proyecto sigue [Versionado Semántico](https://semver.org/lang/es/).
 
+## [2.5.0] — 2026-11-12
+
+Versión de interconexión con el ecosistema de utilidades de Antonio Horrillo mediante la barra superior transversal responsiva (`NetworkBar.astro`) y ampliación del pie de página (`Footer.astro`) a 4 columnas con enlaces a los proyectos hermanos de datos abiertos de Extremadura (*Luz*, *Combustible* y *Embalses*).
+
+### Añadido y Mejorado
+
+- **Barra de Navegación de Red Responsive ([`NetworkBar.astro`](src/components/NetworkBar.astro), [`BaseLayout.astro`](src/layouts/BaseLayout.astro))**:
+  - Incorporación de la topbar oscura unificada de 36px (`bg-slate-950 text-slate-300`) situada sobre la cabecera.
+  - Indicador de estado para GlucoLuna (`Actual`) con estilo adaptado (`bg-indigo-400/15 text-indigo-300 border-indigo-400/30`).
+  - Navegación móvil en una sola fila con desplazamiento táctil horizontal (`scrollbar-width: none`), títulos cortos y accesibilidad completa.
+  - Enlace al portal del autor `https://antoniohorrillo.com/`.
+  - Exclusión automática en modo de impresión para preservar el formato de impresión de fichas y calendarios (`print:hidden`).
+- **Pie de Página Ampliado con Red de Proyectos ([`Footer.astro`](src/components/Footer.astro), [`base.css`](src/styles/base.css))**:
+  - Reestructuración de `.site-footer__inner` a 4 columnas en desktop (`minmax(0, 1.3fr) repeat(3, minmax(0, 0.9fr))`) con adaptación fluida a 2 columnas en tablet (<= 860px) y 1 columna en móvil (<= 520px).
+  - Nueva columna «Red de Proyectos» con enlaces `dofollow` a los paneles de Extremadura (*Luz Extremadura*, *Combustible Extremadura*, *Embalses Extremadura*) y enlace al portafolio de Antonio Horrillo.
+
 ## [2.4.0] — 2026-11-03
 
 Soporte completo como Progressive Web App (PWA) con instalación en Chrome móvil, implementación de Google Consent Mode v2 delimitado por región y actualización de la política de privacidad y cookies.
